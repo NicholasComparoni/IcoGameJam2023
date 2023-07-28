@@ -1,21 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class AutoRunningCharacter : MonoBehaviour
-{
-    public float running = 5f;
+namespace ICO321 {
+	public class AutoRunningCharacter : MonoBehaviour {
+		[FormerlySerializedAs("running")] public float movementSpeed = 5f;
 
-    private Rigidbody2D rb;
+		private Rigidbody2D rb;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+		private void Start() {
+			rb = GetComponent<Rigidbody2D>();
+		}
 
-    private void Update()
-    {
-        // Move the character to the right based on the walkSpeed.
-        rb.velocity = new Vector2(running, rb.velocity.y);
-    }
+		private void Update() { }
+	}
 }
