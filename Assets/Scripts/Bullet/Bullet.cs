@@ -4,12 +4,21 @@ using UnityEngine;
 
 namespace ICO321 {
 	public class Bullet : MonoBehaviour {
-		public int type;
+		[SerializeField] private SpriteRenderer spriteRenderer;
+		private TypesUtility.Phase phase;
+
 		private Vector3 direction;
 		public float speed;
 		public Vector3 Direction {
 			get => direction;
 			set { direction = value.normalized; }
+		}
+		public TypesUtility.Phase Phase {
+			get => phase;
+			set {
+				phase = value;
+				spriteRenderer.color = PhaseManager.Instance.GetPhaseColor();
+			}
 		}
 
 		private void Awake() {
@@ -22,6 +31,11 @@ namespace ICO321 {
 			transform.position += Direction * (speed * Time.deltaTime);
 		}
 
-		private void OnTriggerEnter2D(Collider2D other) { }
+		private void OnCollisionEnter2D(Collision2D other) {
+			var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+			if (enemyHealth != null) {
+				enemyHealth.Damage(phase);
+			}
+		}
 	}
 }

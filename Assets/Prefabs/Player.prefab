@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744683602712676027}
   - component: {fileID: 2728207844126195904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 95102964295039207}
   - component: {fileID: 7517428944882849192}
   - component: {fileID: 8422674713328383800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -218,6 +218,7 @@ MonoBehaviour:
   bullet: {fileID: 7168920256043626, guid: 4eab752415df3b1428c2c41a5a0e53d1, type: 3}
   turret: {fileID: 6744683602712676027}
   muzzle: {fileID: 598913096197542543}
+  coolDown: 0.1
 --- !u!114 &95102964295039207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 598913096197542543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
