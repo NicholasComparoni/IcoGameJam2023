@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour {
-	public float speed;
-	public float damage;
-	public float cooldown;
+    public float cooldown;
+    public float damage;
+    public float speed;
 
-	public GameObject player;
+    public GameObject player;
 
 	private bool resting;
 
@@ -29,8 +29,10 @@ public class MeleeAttack : MonoBehaviour {
 			resting = false;
 		}
 		if (!resting) {
-			transform.LookAt(player.transform.position);
-			rb.velocity = (player.transform.position - transform.position).normalized * speed;
+            float angle = Vector3.SignedAngle(transform.up, (player.transform.position - transform.position), Vector3.forward);
+            transform.RotateAround(transform.position, Vector3.forward, angle);
+
+            rb.velocity = (player.transform.position - transform.position).normalized * speed;
 		}
 	}
 
