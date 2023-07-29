@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICO321;
+using System;
 using UnityEngine;
 
 namespace ICO321 {
@@ -22,10 +23,15 @@ namespace ICO321 {
 				currentHealth -= 1;
 				OnHealthUpdated?.Invoke(currentHealth, maxHealth);
 				if (currentHealth <= 0) {
-					OnPlayerDeath?.Invoke();
-					isDead = true;
+					Die();
 				}
 			}
 		}
+
+		public void Die()
+		{
+            OnPlayerDeath?.Invoke();
+            isDead = true;
+        }
 	}
 }
