@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,16 +15,23 @@ namespace ICO321 {
 				Instance = this;
 			}
 			mainCamera = Camera.main;
-		}
-
-		private void Start() {
 			var min = mainCamera.ViewportToWorldPoint(Vector3.zero);
 			min.z = -100;
 			var max = mainCamera.ViewportToWorldPoint(Vector3.one);
 			max.z = 100;
 			bounds.min = min;
 			bounds.max = max;
+			bounds.extents += Vector3.forward * 10;
 		}
+
+		private void OnDrawGizmos() {
+			mainCamera = Camera.main;
+			Start();
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireCube(bounds.center, bounds.size);
+		}
+
+		private void Start() { }
 
 		public bool IsInsideBounds(Vector3 point) {
 			return bounds.Contains(point);
