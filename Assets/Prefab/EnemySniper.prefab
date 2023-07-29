@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnDistance: 0.7
-  damage: 1
   cooldown: 1
-  range: 1
+  range: 10
+  speed: 2
   player: {fileID: 0}

@@ -9,9 +9,9 @@ namespace ICO321
     public class SniperAttack : MonoBehaviour
     {
         public float bulletSpawnDistance;
-        public float damage;
         public float cooldown;
         public float range;
+        public float speed;
 
         public GameObject player;
 
@@ -47,9 +47,16 @@ namespace ICO321
             }
             if (!resting)
             {
-                Shoot();
-                resting = true;
-                lastAttackTime = Time.time;
+                if (toPlayer.magnitude > range)
+                {
+                    rb.velocity = (player.transform.position - transform.position).normalized * speed;
+                }
+                else
+                {
+                    Shoot();
+                    resting = true;
+                    lastAttackTime = Time.time;
+                }
             }
         }
 
@@ -59,7 +66,7 @@ namespace ICO321
             Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
             Vector3 dir = LeadShot(player.transform.position, (Vector3)player.GetComponent<Rigidbody2D>().velocity, spawnPos, newBullet.speed);
             newBullet.transform.position = spawnPos;
-            newBullet.transform.rotation = Quaternion.identity;
+            newBullet.transform.rotation = transform.rotation;
             newBullet.Direction = dir.normalized;
         }
 
