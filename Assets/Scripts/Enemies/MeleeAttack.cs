@@ -18,6 +18,8 @@ public class MeleeAttack : MonoBehaviour {
 
 	// Start is called before the first frame update
 	private void Start() {
+
+		player = GameObject.Find("Player");
 		resting = false;
 		lastAttackTime = Mathf.NegativeInfinity;
 		rb = GetComponent<Rigidbody2D>();
