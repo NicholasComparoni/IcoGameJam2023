@@ -5083,6 +5083,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.01847575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.9652136
+      objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195367, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_Name
       value: Game Camera
