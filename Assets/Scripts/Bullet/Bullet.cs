@@ -31,11 +31,13 @@ namespace ICO321 {
 			transform.position += Direction * (speed * Time.deltaTime);
 		}
 
-		private void OnCollisionEnter2D(Collision2D other) {
-			var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-			if (enemyHealth != null) {
-				enemyHealth.Damage(phase);
-			}
-		}
-	}
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.Damage(phase);
+            }
+        }
+    }
 }

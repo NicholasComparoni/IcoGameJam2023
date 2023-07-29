@@ -19,5 +19,14 @@ namespace ICO321 {
 			OnDeath?.Invoke();
 			Destroy(gameObject);
 		}
-	}
+
+        private void OnCollisionEnter2D(Collision collision)
+        {
+			int otherLayer = collision.collider.gameObject.layer;
+            if (otherLayer == LayerMask.NameToLayer("Player"))
+			{
+				//contact damage
+			}
+        }
+    }
 }
