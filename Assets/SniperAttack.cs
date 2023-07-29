@@ -53,6 +53,7 @@ namespace ICO321
                 }
                 else
                 {
+                    rb.velocity = Vector2.zero;
                     Shoot();
                     resting = true;
                     lastAttackTime = Time.time;
