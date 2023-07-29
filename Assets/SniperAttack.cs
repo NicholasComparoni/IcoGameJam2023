@@ -56,10 +56,18 @@ namespace ICO321
         private void Shoot()
         {
             var newBullet = PoolManager.Instance.GetItem("BlueBullet").GetComponent<Bullet>();
-            newBullet.transform.position = transform.position + toPlayer.normalized * bulletSpawnDistance;
+            Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
+            Vector3 dir = LeadShot(player.transform.position, (Vector3)player.GetComponent<Rigidbody2D>().velocity, spawnPos, newBullet.speed);
+            newBullet.transform.position = spawnPos;
             newBullet.transform.rotation = Quaternion.identity;
-            var direction = toPlayer.normalized;
-            newBullet.Direction = direction;
+            newBullet.Direction = dir.normalized;
+        }
+
+        private Vector3 LeadShot(Vector3 targetPosition, Vector3 targetVelocity, Vector3 startPosition, float projectileSpeed)
+        {
+            float curDistance = (targetPosition - startPosition).magnitude;
+            float distanceCoefficient = (((targetPosition + (targetVelocity * curDistance / projectileSpeed))) - startPosition).magnitude / projectileSpeed;
+            return (((targetPosition + (targetVelocity * distanceCoefficient)) - startPosition));
         }
     }
 }
