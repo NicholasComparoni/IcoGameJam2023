@@ -28,10 +28,14 @@ namespace ICO321 {
 			}
 		}
 
-		public void Die()
-		{
-            OnPlayerDeath?.Invoke();
-            isDead = true;
-        }
+		public void Kill() {
+			currentHealth = 0;
+			Damage();
+		}
+
+		public void Die() {
+			OnPlayerDeath?.Invoke();
+			isDead = true;
+		}
 	}
 }

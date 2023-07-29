@@ -1,4 +1,3 @@
-using ICO321;
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,9 +6,14 @@ namespace ICO321 {
 	public class EnemyHealth : MonoBehaviour {
 		[FormerlySerializedAs("phase")] public TypesUtility.Phase enemyPhase;
 		public event Action OnDeath;
+		public GameObject deathVfx;
 
-		public bool Damage(TypesUtility.Phase atkPhs) {
-			if (atkPhs == enemyPhase) {
+		public void Kill() {
+			Die();
+		}
+
+		public bool Damage(TypesUtility.Phase bulletPhase) {
+			if (bulletPhase == enemyPhase) {
 				Die();
 				return true;
 			}
@@ -17,8 +21,12 @@ namespace ICO321 {
 		}
 
 		private void Die() {
+			var vfx = PoolManager.Instance.GetItem(deathVfx.name);
+			vfx.transform.position = transform.position;
+			vfx.GetComponent<ParticleVfx>().Color = PhaseManager.Instance.GetPhaseColor(enemyPhase);
+			vfx.GetComponent<ParticleVfx>().Play();
 			OnDeath?.Invoke();
 			Destroy(gameObject);
 		}
-    }
+	}
 }

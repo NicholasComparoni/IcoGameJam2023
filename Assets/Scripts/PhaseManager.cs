@@ -43,6 +43,10 @@ namespace ICO321 {
 			counter = 0;
 		}
 
+		public Color GetPhaseColor(TypesUtility.Phase phase) {
+			return phaseColors[(int)phase];
+		}
+
 		public Color GetPhaseColor() {
 			return phaseColors[(int)currentPhase];
 		}

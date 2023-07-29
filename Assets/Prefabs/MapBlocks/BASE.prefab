@@ -423,7 +423,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9d0dcdc46961d1e40b808b100216382e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapState: 0
-  timeToReachScreen: 13.21875
+  timeToReachScreen: 15.994228
   stuffToActivateOnEnterScreen: []
 --- !u!114 &8114345079266501410
 MonoBehaviour:

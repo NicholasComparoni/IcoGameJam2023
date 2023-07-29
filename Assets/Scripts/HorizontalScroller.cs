@@ -6,7 +6,7 @@ namespace ICO321 {
 		public float speed;
 		private float speedMultiplier;
 
-		private void Awake() {
+		private void Start() {
 			speedMultiplier = 1;
 			if (LevelManager.Instance != null) {
 				LevelManager.Instance.OnSpeedUpdated += OnSpeedUpdated;

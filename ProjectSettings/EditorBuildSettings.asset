@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
+    guid: ecd8cd32068261a498dcd092d72d53a8
+  - enabled: 1
     path: Assets/Scenes/Cinfa.unity
     guid: e8214008adbb5ed4383190f9e14e48b6
   - enabled: 0

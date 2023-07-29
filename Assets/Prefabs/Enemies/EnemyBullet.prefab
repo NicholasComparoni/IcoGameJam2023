@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4692381187134509699}
   - component: {fileID: 6970025940915733935}
   m_Layer: 7
-  m_Name: BlueBullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5549651451161588543}
+  phase: 0
   direction: {x: 0, y: 0, z: 0}
+  hitVfx: {fileID: 4476459128443434889, guid: 007299abfc3912e4c989d185fa0844bf, type: 3}
   speed: 7
 --- !u!58 &6970025940915733935
 CircleCollider2D:

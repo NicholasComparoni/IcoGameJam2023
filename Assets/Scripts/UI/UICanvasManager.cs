@@ -18,10 +18,12 @@ namespace ICO321 {
 
 		private void Start() {
 			var canvasScaler = canvas.GetComponent<CanvasScaler>();
-			canvasScaler.referenceResolution = new Vector2(camera.GetComponent<PixelPerfectCamera>().refResolutionX/2f, camera.GetComponent<PixelPerfectCamera>().refResolutionY/2f);
+			canvasScaler.referenceResolution = new Vector2(camera.GetComponent<PixelPerfectCamera>().refResolutionX / 2f, camera.GetComponent<PixelPerfectCamera>().refResolutionY / 2f);
 			canvasScaler.referencePixelsPerUnit = camera.GetComponent<PixelPerfectCamera>().assetsPPU;
-			LevelManager.Instance.ShowMessage += OnShowMessage;
-			LevelManager.Instance.Fade += OnFade;
+			if (LevelManager.Instance != null) {
+				LevelManager.Instance.ShowMessage += OnShowMessage;
+				LevelManager.Instance.Fade += OnFade;
+			}
 		}
 
 		private void OnFade(bool doFadeIn) {

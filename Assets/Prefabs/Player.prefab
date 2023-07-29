@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6649607998881794472}
   - component: {fileID: 95102964295039207}
   - component: {fileID: 7517428944882849192}
-  - component: {fileID: 8422674713328383800}
+  - component: {fileID: 350273385596097669}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 580694a6a86ad42438c47da57c6cedbb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -254,8 +254,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &8422674713328383800
-PolygonCollider2D:
+--- !u!58 &350273385596097669
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -268,46 +268,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.49337223, y: -0.5}
-      - {x: -0.375, y: -0.5}
-      - {x: -0.375, y: -0.46875}
-      - {x: -0.46875, y: -0.375}
-      - {x: -0.49005833, y: -0.42802227}
-    - - {x: 0.375, y: -0.46875}
-      - {x: 0.375, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.5, y: -0.375}
-      - {x: 0.46875, y: -0.375}
-    - - {x: -0.16234711, y: 0.24811113}
-      - {x: -0.3721192, y: 0.25776458}
-      - {x: -0.43372226, y: 0.23154168}
-      - {x: -0.43703616, y: -0.3499138}
-      - {x: -0.09563888, y: -0.33997232}
-      - {x: 0.31299725, y: -0.15721112}
-      - {x: 0.4668611, y: -0.0019222647}
-      - {x: 0.40721112, y: 0.14488333}
-      - {x: 0.18375567, y: 0.1922389}
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: 0.375}
-      - {x: -0.46875, y: 0.375}
-      - {x: -0.375, y: 0.46875}
-      - {x: -0.375, y: 0.5}
-    - - {x: 0.375, y: 0.5}
-      - {x: 0.375, y: 0.46875}
-      - {x: 0.46875, y: 0.375}
-      - {x: 0.5, y: 0.375}
-      - {x: 0.5, y: 0.5}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8286932220791915188
 GameObject:
   m_ObjectHideFlags: 0

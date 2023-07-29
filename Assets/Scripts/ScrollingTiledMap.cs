@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ICO321 {
@@ -45,9 +46,11 @@ namespace ICO321 {
 			timeToReachScreen = Mathf.Abs(bounds.min.x - screenBounds.max.x) / GetComponent<HorizontalScroller>().speed;
 		}
 
-		private void Start() {
+		private IEnumerator Start() {
+			yield return null;
 			bounds = col2D.bounds;
 			bounds.extents += Vector3.forward * 10;
+			yield return null;
 			screenBounds = BoundariesManager.Instance.bounds;
 			//Debug.Log($"{bounds} {screenBounds}");
 		}
