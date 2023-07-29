@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7168920256043625}
+  phase: 0
+  direction: {x: 0, y: 0, z: 0}
+  hitVfx: {fileID: 4476459128443434889, guid: 007299abfc3912e4c989d185fa0844bf, type: 3}
   speed: 10
 --- !u!58 &7168920256043623
 CircleCollider2D:

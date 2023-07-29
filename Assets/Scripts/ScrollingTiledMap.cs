@@ -11,6 +11,9 @@ namespace ICO321 {
 
 		private HorizontalScroller horizontalScroller;
 		public TilemapState tilemapState;
+		[SerializeField] private float timeToReachScreen;
+		[Space] [Header("Stuff to activate")] [SerializeField]
+		private GameObject[] stuffToActivateOnEnterScreen;
 		private Collider2D col2D;
 		private Bounds bounds;
 		private Camera camera;
@@ -21,6 +24,9 @@ namespace ICO321 {
 			col2D = GetComponent<Collider2D>();
 
 			horizontalScroller = GetComponent<HorizontalScroller>();
+			for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
+				stuffToActivateOnEnterScreen[i].SetActive(false);
+			}
 		}
 
 		private void OnDrawGizmos() {
@@ -28,13 +34,22 @@ namespace ICO321 {
 			bounds = GetComponent<Collider2D>().bounds;
 			bounds.extents += Vector3.forward * 10;
 			Gizmos.DrawWireCube(bounds.center, bounds.size);
+
+
+			var min = Camera.main.ViewportToWorldPoint(Vector3.zero);
+			min.z = -100;
+			var max = Camera.main.ViewportToWorldPoint(Vector3.one);
+			max.z = 100;
+			screenBounds.min = min;
+			screenBounds.max = max;
+			timeToReachScreen = Mathf.Abs(bounds.min.x - screenBounds.max.x) / GetComponent<HorizontalScroller>().speed;
 		}
 
 		private void Start() {
 			bounds = col2D.bounds;
 			bounds.extents += Vector3.forward * 10;
 			screenBounds = BoundariesManager.Instance.bounds;
-			Debug.Log($"{bounds} {screenBounds}");
+			//Debug.Log($"{bounds} {screenBounds}");
 		}
 
 		private void Update() {
@@ -44,6 +59,9 @@ namespace ICO321 {
 				case TilemapState.OutPreEnter:
 					if (bounds.Intersects(screenBounds)) {
 						tilemapState = TilemapState.InsideBounds;
+						for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
+							stuffToActivateOnEnterScreen[i].SetActive(true);
+						}
 					}
 					break;
 				case TilemapState.InsideBounds:
@@ -52,8 +70,8 @@ namespace ICO321 {
 					}
 					break;
 				case TilemapState.OutOfBounds:
-					Destroy(horizontalScroller);
-					Destroy(gameObject);
+					//Destroy(horizontalScroller);
+					Destroy(gameObject, 1);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

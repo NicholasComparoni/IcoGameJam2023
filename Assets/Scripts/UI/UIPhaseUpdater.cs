@@ -25,6 +25,7 @@ namespace ICO321 {
 				phaseImage.DOColor(PhaseManager.Instance.GetPhaseColor(), PhaseManager.Instance.phaseDuration / 10f);
 			}
 			counterText.text = ((int)newPhase + 1).ToString();
+			counterText.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
 		}
 	}
 }

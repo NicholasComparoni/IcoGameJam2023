@@ -5,6 +5,7 @@ namespace ICO321 {
 		[SerializeField] private SpriteRenderer spriteRenderer;
 		[SerializeField] private TypesUtility.Phase phase;
 		[SerializeField] private Vector3 direction;
+		[SerializeField] private GameObject hitVfx;
 
 		private Collider2D col2D;
 		public float speed;
@@ -46,6 +47,10 @@ namespace ICO321 {
 			if (playerHealth != null) {
 				playerHealth.Damage();
 			}
+			var vfx = PoolManager.Instance.GetItem(hitVfx.name);
+			vfx.transform.position = transform.position;
+			vfx.GetComponent<ParticleVfx>().Color = spriteRenderer.color;
+			vfx.GetComponent<ParticleVfx>().Play();
 			gameObject.SetActive(false);
 		}
 	}

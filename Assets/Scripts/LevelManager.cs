@@ -21,6 +21,8 @@ namespace ICO321 {
 
 		public event Action<LevelState> OnLevelStateUpdated;
 		public event Action<float> OnSpeedUpdated;
+		public event Action<string, float> ShowMessage;
+		public event Action<bool> Fade;
 
 		private void Awake() {
 			if (Instance != null) {
@@ -40,6 +42,8 @@ namespace ICO321 {
 			foreach (var e in enemies) {
 				e.OnDeath += OnEnemyKilled;
 			}
+			Fade?.Invoke(true);
+			ShowMessage?.Invoke("Prepare Your Anus", 3);
 		}
 
 		private void OnEnemyKilled() {

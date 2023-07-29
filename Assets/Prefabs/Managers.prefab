@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 1
   levelState: 0
+  enemiesKilled: 0
 --- !u!114 &4938186051749428210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +133,9 @@ MonoBehaviour:
     amount: 50
   - id: 
     prefab: {fileID: 2815288675570082675, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
+    amount: 50
+  - id: 
+    prefab: {fileID: 4476459128443434889, guid: 007299abfc3912e4c989d185fa0844bf, type: 3}
     amount: 50
 --- !u!114 &4938186051749428215
 MonoBehaviour:
