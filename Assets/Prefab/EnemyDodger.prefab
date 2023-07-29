@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24335837b88a47e448adef011297ea12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPhase: 0
+  enemyPhase: 1
 --- !u!114 &4128475813636563008
 MonoBehaviour:
   m_ObjectHideFlags: 0
