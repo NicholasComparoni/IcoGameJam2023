@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5549651451161588543}
   - component: {fileID: 3182050863478849653}
   - component: {fileID: 4692381187134509699}
+  - component: {fileID: 6970025940915733935}
   m_Layer: 7
   m_Name: BlueBullet
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5093005, g: 0.549342, b: 0.990566, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cfd1cc40d5b488e42882b819bde7c1a2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,4 +113,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5549651451161588543}
+  direction: {x: 0, y: 0, z: 0}
   speed: 7
+--- !u!58 &6970025940915733935
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815288675570082675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.125

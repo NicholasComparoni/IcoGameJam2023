@@ -5,7 +5,7 @@ namespace ICO321 {
 	public class PhaseManager : MonoBehaviour {
 		public static PhaseManager Instance;
 		[SerializeField] private TypesUtility.Phase currentPhase;
-		[ColorUsage(true,true)]public Color[] phaseColors;
+		[ColorUsage(true, true)] public Color[] phaseColors;
 		public float phaseDuration;
 		private float counter;
 		public event Action<TypesUtility.Phase> OnNewPhase;

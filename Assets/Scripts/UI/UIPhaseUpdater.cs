@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ICO321 {
 	public class UIPhaseUpdater : MonoBehaviour {
 		public List<Image> phaseImages;
+		public TMP_Text counterText;
 
 		private void Start() {
 			if (PhaseManager.Instance == null) {
@@ -22,6 +24,7 @@ namespace ICO321 {
 				phaseImage.DOKill();
 				phaseImage.DOColor(PhaseManager.Instance.GetPhaseColor(), PhaseManager.Instance.phaseDuration / 10f);
 			}
+			counterText.text = ((int)newPhase + 1).ToString();
 		}
 	}
 }

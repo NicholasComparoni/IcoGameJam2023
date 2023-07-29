@@ -1,13 +1,12 @@
-using System;
-using DG.Tweening;
 using UnityEngine;
 
 namespace ICO321 {
 	public class Bullet : MonoBehaviour {
 		[SerializeField] private SpriteRenderer spriteRenderer;
-		private TypesUtility.Phase phase;
+		[SerializeField] private TypesUtility.Phase phase;
+		[SerializeField] private Vector3 direction;
 
-		private Vector3 direction;
+		private Collider2D col2D;
 		public float speed;
 		public Vector3 Direction {
 			get => direction;
@@ -23,6 +22,13 @@ namespace ICO321 {
 
 		private void Awake() {
 			direction = direction.normalized;
+			col2D = GetComponent<Collider2D>();
+			if (col2D == null) {
+				Debug.LogError($"{name} is a Bullet with no Collider2D");
+			}
+			else {
+				col2D.isTrigger = true;
+			}
 		}
 
 		private void Update() {
@@ -31,22 +37,16 @@ namespace ICO321 {
 			transform.position += Direction * (speed * Time.deltaTime);
 		}
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.Damage(phase);
-				gameObject.SetActive(false);
-				return;
-            }
-			var health = other.gameObject.GetComponent<Health>();
-            if (health != null)
-            {
-                other.gameObject.SendMessage("Damage", SendMessageOptions.DontRequireReceiver);
-                gameObject.SetActive(false);
-                return;
-            }
-        }
-    }
+		private void OnTriggerEnter2D(Collider2D other) {
+			var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+			if (enemyHealth != null) {
+				enemyHealth.Damage(phase);
+			}
+			var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+			if (playerHealth != null) {
+				playerHealth.Damage();
+			}
+			gameObject.SetActive(false);
+		}
+	}
 }
