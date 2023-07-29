@@ -37,6 +37,15 @@ namespace ICO321 {
             if (enemyHealth != null)
             {
                 enemyHealth.Damage(phase);
+				gameObject.SetActive(false);
+				return;
+            }
+			var health = other.gameObject.GetComponent<Health>();
+            if (health != null)
+            {
+                other.gameObject.SendMessage("Damage", SendMessageOptions.DontRequireReceiver);
+                gameObject.SetActive(false);
+                return;
             }
         }
     }
