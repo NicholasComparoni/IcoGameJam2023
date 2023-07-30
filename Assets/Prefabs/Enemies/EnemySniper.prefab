@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffda6796d3a1994eaf0e5a93d347bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnDistance: 1
+  bulletSpawnDistance: 0
   cooldown: 1
   range: 20
   speed: 3
