@@ -48,7 +48,8 @@ namespace ICO321 {
 				e.OnDeath += OnEnemyKilled;
 			}
 			Fade?.Invoke(true);
-			ShowMessage?.Invoke("Prepare Your Anus", 3);
+			ShowMessage?.Invoke("Prepare Your Anus", 2);
+			MusicManager.Instance.PlayTrack(1);
 		}
 
 		private void OnEnemyKilled() {

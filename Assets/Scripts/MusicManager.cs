@@ -1,0 +1,53 @@
+﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.Audio;
+
+namespace ICO321 {
+	public class MusicManager : MonoBehaviour {
+		public static MusicManager Instance;
+		[SerializeField] private AudioMixer audioMixer;
+		[SerializeField] private int channelsNumber;
+		[Space] [SerializeField] private AudioClip[] tracks;
+		private AudioSource[] channels;
+		private int previousChannel = -1;
+		private int currentChannel = -1;
+
+		private void Awake() {
+			if (Instance != null) {
+				Destroy(this);
+			}
+			else {
+				Instance = this;
+			}
+			DontDestroyOnLoad(gameObject);
+			if (channelsNumber > 0) {
+				channels = new AudioSource[channelsNumber];
+				GameObject musicChannels = new GameObject("Music Channels");
+				musicChannels.transform.SetParent(transform);
+				for (int i = 0; i < channelsNumber; i++) {
+					var newAudioSource = musicChannels.gameObject.AddComponent<AudioSource>();
+					newAudioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("OST")[0];
+					newAudioSource.loop = true;
+					newAudioSource.playOnAwake = false;
+					channels[i] = newAudioSource;
+				}
+				currentChannel = 0;
+				previousChannel = -1;
+			}
+		}
+
+		public void PlayTrack(int trackNumber) {
+			channels[currentChannel].clip = tracks[trackNumber % tracks.Length];
+			if (!channels[currentChannel].isPlaying) {
+				channels[currentChannel].Play();
+			}
+
+			channels[currentChannel].DOFade(1, 1);
+			if (previousChannel >= 0)
+				channels[previousChannel].DOFade(0, 1);
+
+			previousChannel = currentChannel;
+			currentChannel = (currentChannel + 1) % channelsNumber;
+		}
+	}
+}

@@ -12,11 +12,14 @@ namespace ICO321 {
 			scenesManager = FindObjectOfType<ScenesManager>();
 		}
 
+		private void Start() {
+			MusicManager.Instance.PlayTrack(0);
+		}
+
 		public void StartGame() {
 			if (allowInput) {
 				allowInput = false;
 				StartCoroutine(LoadingGame());
-				
 			}
 		}
 

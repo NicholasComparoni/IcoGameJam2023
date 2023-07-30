@@ -219,6 +219,7 @@ MonoBehaviour:
   turret: {fileID: 6744683602712676027}
   muzzle: {fileID: 598913096197542543}
   coolDown: 0.1
+  fireClip: {fileID: 8300000, guid: 2b5107d0881e647469f074b2a9246909, type: 3}
 --- !u!114 &95102964295039207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 3
+  hitClip: {fileID: 8300000, guid: 2ccc339a142d1624c83b77828b3be7ad, type: 3}
+  deadClip: {fileID: 8300000, guid: cd15efad4a1fc5a43b23bb0d16d54a9f, type: 3}
 --- !u!50 &7517428944882849192
 Rigidbody2D:
   serializedVersion: 4

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 551329427}
   - component: {fileID: 551329426}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: PostProcess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827306295}
   - component: {fileID: 1827306293}
-  - component: {fileID: 1827306292}
+  - component: {fileID: 9052423821784124805}
   m_Layer: 0
   m_Name: Killzone
   m_TagString: Untagged
@@ -108,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 16}
   m_EdgeRadius: 0
---- !u!114 &1827306292
+--- !u!114 &9052423821784124805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1827306291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ce30b0f3057134182dc38de23dc2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: c45a8d723a414063b655dda7e52f2974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4938186051749428211
@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 4938186051749428212}
   - component: {fileID: 4938186051749428215}
   - component: {fileID: 2242919162469526295}
+  - component: {fileID: 656090439904519287}
   m_Layer: 0
   m_Name: Managers
   m_TagString: GameController
@@ -251,3 +252,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainScene: MainMenu
   nextLevel: LevelX
+--- !u!114 &656090439904519287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938186051749428211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1d07234a004955b207941bc75776d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 13f2678ddea7b9144aa066512e23f96f, type: 2}
+  channelsNumber: 16

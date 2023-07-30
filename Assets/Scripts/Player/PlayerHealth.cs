@@ -6,6 +6,8 @@ namespace ICO321 {
 	public class PlayerHealth : MonoBehaviour {
 		[SerializeField] private int maxHealth;
 		[SerializeField] private int currentHealth;
+		[SerializeField] private AudioClip hitClip;
+		[SerializeField] private AudioClip deadClip;
 		private bool isDead;
 		public event Action<int, int> OnHealthUpdated;
 		public event Action OnPlayerDeath;
@@ -25,6 +27,9 @@ namespace ICO321 {
 				if (currentHealth <= 0) {
 					Die();
 				}
+				else {
+					SfxManager.Instance.PlayClip(hitClip);
+				}
 			}
 		}
 
@@ -34,6 +39,7 @@ namespace ICO321 {
 		}
 
 		public void Die() {
+			SfxManager.Instance.PlayClip(deadClip);
 			OnPlayerDeath?.Invoke();
 			isDead = true;
 		}
