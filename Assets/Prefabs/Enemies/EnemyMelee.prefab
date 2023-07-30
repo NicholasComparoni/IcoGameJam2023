@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3
   damage: 1
-  speed: 10
+  speed: 4
   player: {fileID: 7517428944882849199, guid: 7a0b0fb3ba550664e97aa5c5dca6405f, type: 3}
 --- !u!58 &3428862303281316887
 CircleCollider2D:
