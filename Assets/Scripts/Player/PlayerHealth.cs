@@ -1,11 +1,16 @@
 ﻿using ICO321;
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace ICO321 {
 	public class PlayerHealth : MonoBehaviour {
 		[SerializeField] private int maxHealth;
 		[SerializeField] private int currentHealth;
+		[SerializeField] private float damageFlashDuration;
+		[SerializeField] private float maxDamageFlashAmount;
+
+		[SerializeField] private SpriteRenderer spriteRenderer;
 		[SerializeField] private AudioClip hitClip;
 		[SerializeField] private AudioClip deadClip;
 		[SerializeField] private GameObject deadVfx;
@@ -15,6 +20,7 @@ namespace ICO321 {
 
 		private void Awake() {
 			currentHealth = maxHealth;
+			spriteRenderer.material = new Material(spriteRenderer.material);
 		}
 
 		private void Start() {
@@ -30,6 +36,9 @@ namespace ICO321 {
 				}
 				else {
 					SfxManager.Instance.PlayClip(hitClip);
+					float flash = 0;
+					DOTween.To(() => flash, x => flash = x, maxDamageFlashAmount, damageFlashDuration).OnUpdate(() => { spriteRenderer.material.SetFloat("_Flash", flash); })
+						.OnComplete(() => { spriteRenderer.material.SetFloat("_Flash", 0); });
 				}
 			}
 		}
@@ -44,7 +53,7 @@ namespace ICO321 {
 			OnPlayerDeath?.Invoke();
 			isDead = true;
 			var deathVfx = Instantiate(deadVfx, transform);
-			
+
 			deathVfx.transform.SetParent(null);
 			Destroy(gameObject);
 		}
