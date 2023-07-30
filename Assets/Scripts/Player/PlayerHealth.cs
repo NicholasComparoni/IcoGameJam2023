@@ -7,7 +7,8 @@ namespace ICO321 {
 	public class PlayerHealth : MonoBehaviour {
 		[SerializeField] private int maxHealth;
 		[SerializeField] private int currentHealth;
-		[Space] [SerializeField] private float damageFlashDuration;
+
+		[Space] [SerializeField] private float graceTime;
 		[SerializeField] private float maxDamageFlashAmount;
 
 		[SerializeField] private SpriteRenderer spriteRenderer;
@@ -15,6 +16,7 @@ namespace ICO321 {
 		[SerializeField] private AudioClip deadClip;
 		[Space] [SerializeField] private GameObject deadVfx;
 		private bool isDead;
+		private float graceTimer;
 		public event Action<int, int> OnHealthUpdated;
 		public event Action OnPlayerDeath;
 
@@ -27,18 +29,25 @@ namespace ICO321 {
 			OnHealthUpdated?.Invoke(currentHealth, maxHealth);
 		}
 
+		private void Update() {
+			graceTimer -= Time.deltaTime;
+		}
+
 		public void Damage() {
 			if (!isDead) {
-				currentHealth -= 1;
-				OnHealthUpdated?.Invoke(currentHealth, maxHealth);
-				if (currentHealth <= 0) {
-					Die();
-				}
-				else {
-					SfxManager.Instance.PlayClip(hitClip);
-					float flash = 0;
-					DOTween.To(() => flash, x => flash = x, maxDamageFlashAmount, damageFlashDuration).OnUpdate(() => { spriteRenderer.material.SetFloat("_Flash", flash); })
-						.OnComplete(() => { spriteRenderer.material.SetFloat("_Flash", 0); });
+				if (graceTimer < 0) {
+					currentHealth -= 1;
+					OnHealthUpdated?.Invoke(currentHealth, maxHealth);
+					graceTimer = graceTime;
+					if (currentHealth <= 0) {
+						Die();
+					}
+					else {
+						SfxManager.Instance.PlayClip(hitClip);
+						float flash = 0;
+						DOTween.To(() => flash, x => flash = x, maxDamageFlashAmount, graceTime).OnUpdate(() => { spriteRenderer.material.SetFloat("_Flash", flash); })
+							.OnComplete(() => { spriteRenderer.material.SetFloat("_Flash", 0); });
+					}
 				}
 			}
 		}

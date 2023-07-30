@@ -14983,7 +14983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 3
-  damageFlashDuration: 0.5
+  graceTime: 1
   maxDamageFlashAmount: 0.5
   spriteRenderer: {fileID: 7517428944882849194}
   hitClip: {fileID: 8300000, guid: 2ccc339a142d1624c83b77828b3be7ad, type: 3}
