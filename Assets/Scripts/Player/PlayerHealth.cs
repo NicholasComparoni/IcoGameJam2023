@@ -7,13 +7,13 @@ namespace ICO321 {
 	public class PlayerHealth : MonoBehaviour {
 		[SerializeField] private int maxHealth;
 		[SerializeField] private int currentHealth;
-		[SerializeField] private float damageFlashDuration;
+		[Space] [SerializeField] private float damageFlashDuration;
 		[SerializeField] private float maxDamageFlashAmount;
 
 		[SerializeField] private SpriteRenderer spriteRenderer;
-		[SerializeField] private AudioClip hitClip;
+		[Space] [SerializeField] private AudioClip hitClip;
 		[SerializeField] private AudioClip deadClip;
-		[SerializeField] private GameObject deadVfx;
+		[Space] [SerializeField] private GameObject deadVfx;
 		private bool isDead;
 		public event Action<int, int> OnHealthUpdated;
 		public event Action OnPlayerDeath;
