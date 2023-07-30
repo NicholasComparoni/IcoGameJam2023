@@ -8,6 +8,7 @@ namespace ICO321 {
 		[SerializeField] private int currentHealth;
 		[SerializeField] private AudioClip hitClip;
 		[SerializeField] private AudioClip deadClip;
+		[SerializeField] private GameObject deadVfx;
 		private bool isDead;
 		public event Action<int, int> OnHealthUpdated;
 		public event Action OnPlayerDeath;
@@ -42,6 +43,10 @@ namespace ICO321 {
 			SfxManager.Instance.PlayClip(deadClip);
 			OnPlayerDeath?.Invoke();
 			isDead = true;
+			var deathVfx = Instantiate(deadVfx, transform);
+			
+			deathVfx.transform.SetParent(null);
+			Destroy(gameObject);
 		}
 	}
 }

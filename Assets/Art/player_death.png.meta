@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 861d31662d8c4cf4fa2635d4ab77fbf0
-      internalID: -1078034333
+      spriteID: 5991fb0c77450b5418651b039e360da1
+      internalID: -1645245302
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cca6156106dd284a91e5d580e2d81f9
-      internalID: 450960229
+      spriteID: 1fd841bfc38add744b18fe3d95e66753
+      internalID: -1383655492
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a57a7fca19e88f4eb63c0e209b5bd1d
-      internalID: 676089163
+      spriteID: e9e39bff324363d4ea7749fc30de6d43
+      internalID: 409394432
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f5e8fde548bb754b9d0bb3b5f95f906
-      internalID: -76186294
+      spriteID: c761199c14577a44491cdecc11e2ae4b
+      internalID: -1095986936
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player_death_2: 676089163
-      player_death_0: -1078034333
-      player_death_3: -76186294
-      player_death_1: 450960229
+      player_death_2: 409394432
+      player_death_0: -1645245302
+      player_death_3: -1095986936
+      player_death_1: -1383655492
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
