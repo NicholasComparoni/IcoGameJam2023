@@ -44,7 +44,6 @@ namespace ICO321 {
 				}
 			}
 		}
-        /*
 		private void Shoot() {
 			var newBullet = PoolManager.Instance.GetItem(bullet.name).GetComponent<Bullet>();
 			Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
@@ -53,16 +52,6 @@ namespace ICO321 {
 			newBullet.transform.rotation = transform.rotation;
 			newBullet.Direction = dir.normalized;
 		}
-		*/
-
-        private void Shoot()
-        {
-            var newBullet = PoolManager.Instance.GetItem(bullet.name).GetComponent<Bullet>();
-            Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
-            newBullet.transform.position = spawnPos;
-            newBullet.transform.rotation = transform.rotation;
-            newBullet.Direction = toPlayer.normalized;
-        }
 
         private Vector3 LeadShot(Vector3 targetPosition, Vector3 targetVelocity, Vector3 startPosition, float projectileSpeed) {
 			float curDistance = (targetPosition - startPosition).magnitude;
