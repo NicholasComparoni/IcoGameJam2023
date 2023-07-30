@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using UnityEngine;
+
+namespace ICO321 {
+	public class UIVictoryManager : MonoBehaviour {
+		private ScenesManager scenesManager;
+		[SerializeField] private UIFade uiFade;
+		private bool allowInput = true;
+
+		private void Awake() {
+			scenesManager = FindObjectOfType<ScenesManager>();
+		}
+
+		private void Start() {
+			MusicManager.Instance.PlayTrack(0);
+		}
+
+		private void Update() {
+			if (Input.GetButtonDown("Cancel")) GoToMainMenu();
+		}
+
+		public void GoToMainMenu() {
+			if (allowInput) {
+				allowInput = false;
+				StartCoroutine(LoadingGame());
+			}
+		}
+
+		private IEnumerator LoadingGame() {
+			uiFade.FadeOut();
+			float t = 0;
+			while (t < uiFade.fadeDuration) {
+				t += Time.deltaTime;
+				yield return null;
+			}
+			scenesManager.ReturnToMainMenu();
+		}
+	}
+}
