@@ -9799,7 +9799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &822567680457883287
 Transform:
   m_ObjectHideFlags: 0
@@ -14988,7 +14988,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7517428944882849194}
   hitClip: {fileID: 8300000, guid: 2ccc339a142d1624c83b77828b3be7ad, type: 3}
   deadClip: {fileID: 8300000, guid: cd15efad4a1fc5a43b23bb0d16d54a9f, type: 3}
-  deadVfx: {fileID: 4239867567296059486, guid: 9d3c5fb0ed90f9043976711b75a88619, type: 3}
+  deadVfx: {fileID: 495773792726528329, guid: 4df8355f76544e848a3dfc069b32aab5, type: 3}
 --- !u!50 &7517428944882849192
 Rigidbody2D:
   serializedVersion: 4
