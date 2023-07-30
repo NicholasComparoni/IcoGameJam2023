@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5569235650721199106, guid: 77fb7444348c9b04682888f1730e5c6d, type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5569235650721199160, guid: 77fb7444348c9b04682888f1730e5c6d, type: 3}
       propertyPath: m_Name
       value: BIg Asteroid Yellow Variant
