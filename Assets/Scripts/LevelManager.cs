@@ -2,13 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace ICO321 {
 	public class LevelManager : MonoBehaviour {
+		[SerializeField] private string startLevelMessage;
+		[SerializeField] private string gameOverMessage;
+		[SerializeField] private string victoryMessage;
 		public static LevelManager Instance;
 		[SerializeField] private AudioClip gameOverClip;
 		[SerializeField] private AudioClip victoryClip;
+		[SerializeField] private Volume gameStartOverVolume;
 		private ScenesManager scenesManager;
 
 		public enum LevelState {
@@ -39,6 +45,10 @@ namespace ICO321 {
 			player.GetComponent<PlayerHealth>().OnPlayerDeath += OnPlayerDeath;
 			scenesManager = FindObjectOfType<ScenesManager>();
 			levelState = LevelState.InLevel;
+			float weight = 1;
+			DOTween.To(() => weight, x => weight = x, 0, 3)
+				.OnUpdate(() => { gameStartOverVolume.weight = weight; });
+
 			OnLevelStateUpdated?.Invoke(levelState);
 		}
 
@@ -50,8 +60,14 @@ namespace ICO321 {
 				e.OnDeath += OnEnemyKilled;
 			}
 			Fade?.Invoke(true);
-			ShowMessage?.Invoke("Prepare Your Anus", 2);
+			ShowMessage?.Invoke(startLevelMessage, 2);
 			MusicManager.Instance.PlayTrack(1);
+		}
+
+		private void Update() {
+			if (Input.GetButtonDown("Cancel")) {
+				scenesManager.ReturnToMainMenu();
+			}
 		}
 
 		private void OnEnemyKilled() {
@@ -75,8 +91,11 @@ namespace ICO321 {
 		}
 
 		private IEnumerator GameOverSequence() {
+			float weight = 0;
+			DOTween.To(() => weight, x => weight = x, 1, 3)
+				.OnUpdate(() => { gameStartOverVolume.weight = weight; });
 			SfxManager.Instance.PlayClip(gameOverClip);
-			ShowMessage("All your anus are belong to us", 4);
+			ShowMessage(gameOverMessage, 4);
 			float timer = 0;
 			while (timer < 1) {
 				OnSpeedUpdated?.Invoke(1 - timer);
@@ -91,7 +110,7 @@ namespace ICO321 {
 
 		private IEnumerator VictorySequence() {
 			SfxManager.Instance.PlayClip(victoryClip);
-			ShowMessage("Space: The Anal Frontier", 4);
+			ShowMessage(victoryMessage, 4);
 			float timer = 0;
 			while (timer < 1) {
 				OnSpeedUpdated?.Invoke(1 - timer);

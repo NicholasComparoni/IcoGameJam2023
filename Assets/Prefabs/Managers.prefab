@@ -120,6 +120,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45a8d723a414063b655dda7e52f2974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4278317946089014429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6002241496101757955}
+  - component: {fileID: 2433299228207893512}
+  m_Layer: 0
+  m_Name: GameStartOver PostProcess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6002241496101757955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278317946089014429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4938186051749428213}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2433299228207893512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278317946089014429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 5efd67ecd67c419468354235c23f501b, type: 2}
 --- !u!1 &4938186051749428211
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +205,7 @@ Transform:
   m_Children:
   - {fileID: 551329427}
   - {fileID: 1827306295}
+  - {fileID: 6002241496101757955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,8 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f7487f03484e08bca882b87137043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLevelMessage: 3 2 1
+  gameOverMessage: FAIL
+  victoryMessage: Wi
   gameOverClip: {fileID: 8300000, guid: 93d09bb8779737648941bd7b51dc5e57, type: 3}
   victoryClip: {fileID: 8300000, guid: e64508e8e9e4c5f4a895705e8e7b7327, type: 3}
+  gameStartOverVolume: {fileID: 2433299228207893512}
   speedMultiplier: 1
   levelState: 0
   enemiesKilled: 0
