@@ -90,7 +90,7 @@ MonoBehaviour:
   range: 1
   speed: 0
   player: {fileID: 7517428944882849199, guid: 7a0b0fb3ba550664e97aa5c5dca6405f, type: 3}
-  bullet: {fileID: 2815288675570082675, guid: 1d3f9112c2977734d80e416cb0dda17e, type: 3}
+  bullet: {fileID: 65677213018623296, guid: 1968cc9fa6c166f4db61fb38862b3068, type: 3}
 --- !u!58 &102196449646733706
 CircleCollider2D:
   m_ObjectHideFlags: 0

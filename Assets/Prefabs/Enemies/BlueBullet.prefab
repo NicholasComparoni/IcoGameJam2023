@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2815288675570082675, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
       propertyPath: m_Name
-      value: EnemyBullet
+      value: BlueBullet
       objectReference: {fileID: 0}
     - target: {fileID: 3228415066427421938, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
       propertyPath: m_RootOrder
@@ -53,6 +53,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3228415066427421938, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549651451161588543, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549651451161588543, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
+      propertyPath: m_Color.g
+      value: 0.122285366
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549651451161588543, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

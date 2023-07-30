@@ -208,19 +208,16 @@ MonoBehaviour:
     prefab: {fileID: 7168920256043626, guid: 4eab752415df3b1428c2c41a5a0e53d1, type: 3}
     amount: 50
   - id: 
-    prefab: {fileID: 2815288675570082675, guid: ee9d8f4d63aac854fbe2d91698edc484, type: 3}
+    prefab: {fileID: 65677213018623296, guid: 1968cc9fa6c166f4db61fb38862b3068, type: 3}
+    amount: 50
+  - id: 
+    prefab: {fileID: 6614542702995730954, guid: e6138267a676d13468ce6829f57a4d7f, type: 3}
     amount: 50
   - id: 
     prefab: {fileID: 4476459128443434889, guid: 007299abfc3912e4c989d185fa0844bf, type: 3}
-    amount: 50
-  - id: 
-    prefab: {fileID: 65677213018623296, guid: 1968cc9fa6c166f4db61fb38862b3068, type: 3}
     amount: 20
   - id: 
     prefab: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
-    amount: 30
-  - id: 
-    prefab: {fileID: 6614542702995730954, guid: e6138267a676d13468ce6829f57a4d7f, type: 3}
     amount: 20
 --- !u!114 &4938186051749428215
 MonoBehaviour:

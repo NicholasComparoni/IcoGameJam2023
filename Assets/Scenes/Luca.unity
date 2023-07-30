@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 4938186051749428212, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
-      propertyPath: pools.Array.data[2].prefab
-      value: 
-      objectReference: {fileID: 6614542702995730954, guid: e6138267a676d13468ce6829f57a4d7f, type: 3}
     - target: {fileID: 4938186051749428213, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
       propertyPath: m_RootOrder
       value: 3
