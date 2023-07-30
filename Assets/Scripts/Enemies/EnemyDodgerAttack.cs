@@ -20,9 +20,16 @@ public class EnemyDodgerAttack : MonoBehaviour {
 		resting = false;
 		lastAttackTime = Mathf.NegativeInfinity;
 		toPlayer = (player.transform.position - transform.position);
+
+        player.GetComponent<PlayerHealth>().OnPlayerDeath += EnemyDodgerAttack_OnPlayerDeath;
 	}
 
-	private void Update() {
+    private void EnemyDodgerAttack_OnPlayerDeath()
+    {
+        DestroyImmediate(this);
+    }
+
+    private void Update() {
 		toPlayer = (player.transform.position - transform.position);
 
 		if (resting && Time.time - lastAttackTime > cooldown) {

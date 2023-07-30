@@ -21,9 +21,17 @@ namespace ICO321 {
 			lastAttackTime = Mathf.NegativeInfinity;
 			toPlayer = (player.transform.position - transform.position);
 			rb = GetComponent<Rigidbody2D>();
-		}
 
-		private void Update() {
+            player.GetComponent<PlayerHealth>().OnPlayerDeath += EnemySniperAttack_OnPlayerDeath;
+
+        }
+
+        private void EnemySniperAttack_OnPlayerDeath()
+        {
+			DestroyImmediate(this);
+        }
+
+        private void Update() {
 			toPlayer = (player.transform.position - transform.position);
 
 			float angle = Vector3.SignedAngle(transform.up, toPlayer, Vector3.forward);
