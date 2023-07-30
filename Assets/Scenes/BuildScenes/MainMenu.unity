@@ -701,7 +701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Titolo Gioco
+  m_text: Chroma Countdown
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d9e60d11c99ce2428b1c6ab4493e7b9, type: 2}
   m_sharedMaterial: {fileID: 4393209291604715241, guid: 6d9e60d11c99ce2428b1c6ab4493e7b9, type: 2}
