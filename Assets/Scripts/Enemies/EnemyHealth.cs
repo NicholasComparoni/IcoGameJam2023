@@ -7,6 +7,7 @@ namespace ICO321 {
 		[FormerlySerializedAs("phase")] public TypesUtility.Phase enemyPhase;
 		public event Action OnDeath;
 		public GameObject deathVfx;
+		[SerializeField] private AudioClip deathClip;
 
 		public void Kill() {
 			Die();
@@ -26,6 +27,7 @@ namespace ICO321 {
 			vfx.GetComponent<ParticleVfx>().Color = PhaseManager.Instance.GetPhaseColor(enemyPhase);
 			vfx.GetComponent<ParticleVfx>().Play();
 			OnDeath?.Invoke();
+			SfxManager.Instance.PlayClip(deathClip, 0.3f);
 			Destroy(gameObject);
 		}
 	}

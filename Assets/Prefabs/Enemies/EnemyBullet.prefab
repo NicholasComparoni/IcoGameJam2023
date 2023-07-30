@@ -116,6 +116,7 @@ MonoBehaviour:
   phase: 0
   direction: {x: 0, y: 0, z: 0}
   hitVfx: {fileID: 4476459128443434889, guid: 007299abfc3912e4c989d185fa0844bf, type: 3}
+  hitClip: {fileID: 8300000, guid: 344c842e42416614eaf1852d9c432813, type: 3}
   speed: 7
 --- !u!58 &6970025940915733935
 CircleCollider2D:

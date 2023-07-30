@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPhase: 0
   deathVfx: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
+  deathClip: {fileID: 8300000, guid: c5f722bd3da501044b87716e4b5a00fa, type: 3}
 --- !u!58 &4172081556605491603
 CircleCollider2D:
   m_ObjectHideFlags: 0

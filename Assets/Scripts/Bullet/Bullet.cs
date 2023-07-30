@@ -7,6 +7,7 @@ namespace ICO321 {
 		[SerializeField] private TypesUtility.Phase phase;
 		[SerializeField] private Vector3 direction;
 		[SerializeField] private GameObject hitVfx;
+		[SerializeField] private AudioClip hitClip;
 
 		private Collider2D col2D;
 		public float speed;
@@ -52,6 +53,7 @@ namespace ICO321 {
 			vfx.transform.position = transform.position;
 			vfx.GetComponent<ParticleVfx>().Color = spriteRenderer.color;
 			vfx.GetComponent<ParticleVfx>().Play();
+			SfxManager.Instance.PlayClip(hitClip,0.2f);
 			gameObject.SetActive(false);
 		}
 	}
