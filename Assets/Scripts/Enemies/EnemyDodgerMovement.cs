@@ -24,7 +24,7 @@ namespace ICO321 {
 			Vector3 leftPoint = transform.parent.position + leftOffset;
             Vector3 rightPoint = transform.parent.position + rightOffset;
             Vector3 newPos = Vector3.Lerp(leftPoint, rightPoint, Mathf.PingPong(timer, 1.0f));
-			rb.velocity = (newPos - transform.position) / Time.deltaTime;
+			rb.velocity = (newPos - transform.position);
         }
 	}
 }
