@@ -4,24 +4,27 @@ namespace ICO321 {
 	public class EnemyDodgerMovement : MonoBehaviour {
 		public float movementWidth;
 		public float timeOffset = 0.5f;
-		//public float speed;
 
-		private Vector3 leftPoint;
-		private Vector3 rightPoint;
+		private float timer;
+
+		private Vector3 leftOffset;
+		private Vector3 rightOffset;
 
 		private Rigidbody2D rb;
 
 		private void Start() {
-			var t = transform;
-			Vector3 position = t.position;
-			var right = t.right;
-			leftPoint = position + (right * (-movementWidth / 2f));
-			rightPoint = position + (right * (movementWidth / 2f));
+			timer = timeOffset;
+			leftOffset = (transform.position + (transform.right * (-movementWidth / 2f))) - transform.parent.position;
+			rightOffset = (transform.position + (transform.right * (movementWidth / 2f))) - transform.parent.position;
 			rb = GetComponent<Rigidbody2D>();
 		}
 
 		private void Update() {
-			rb.MovePosition(Vector3.Lerp(leftPoint, rightPoint, Mathf.PingPong(Time.time + timeOffset, 1.0f)));
-		}
+			timer += Time.deltaTime;
+			Vector3 leftPoint = transform.parent.position + leftOffset;
+            Vector3 rightPoint = transform.parent.position + rightOffset;
+            Vector3 newPos = Vector3.Lerp(leftPoint, rightPoint, Mathf.PingPong(timer, 1.0f));
+			rb.velocity = (newPos - transform.position) / Time.deltaTime;
+        }
 	}
 }

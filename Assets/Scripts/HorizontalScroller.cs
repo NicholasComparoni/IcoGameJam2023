@@ -18,7 +18,7 @@ namespace ICO321 {
 		}
 
 		private void Update() {
-			transform.position += Vector3.left * (speed * speedMultiplier * Time.deltaTime);
+			transform.Translate(Vector3.left * (speed * speedMultiplier * Time.deltaTime));
 		}
 
 	}
