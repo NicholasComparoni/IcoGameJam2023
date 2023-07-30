@@ -13,7 +13,7 @@ namespace ICO321 {
 
 		private void Start() {
 			var t = transform;
-			Vector3 position = t.position;
+			Vector3 position = t.localPosition;
 			var right = t.right;
 			leftPoint = position + (right * (-movementWidth / 2f));
 			rightPoint = position + (right * (movementWidth / 2f));

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPhase: 2
   deathVfx: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
-  deathClip: {fileID: 8300000, guid: 58e7e7b5269193c4fa9e4339a6c8d481, type: 3}
+  deathClip: {fileID: 8300000, guid: ee9975109e3fe944a914b960f7ddbea1, type: 3}
 --- !u!114 &7238433002136079862
 MonoBehaviour:
   m_ObjectHideFlags: 0

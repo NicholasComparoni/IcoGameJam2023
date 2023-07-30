@@ -6,7 +6,7 @@ namespace ICO321 {
 		public Transform turret;
 		public Transform muzzle;
 		[Space] [SerializeField] private float coolDown;
-		[SerializeField] private AudioClip fireClip;
+		[SerializeField] private AudioClip[] fireClips;
 		private float coolDownCounter;
 
 		private void Awake() {
@@ -22,7 +22,7 @@ namespace ICO321 {
 				newBullet.Direction = direction;
 				newBullet.Phase = PhaseManager.Instance.CurrentPhase;
 				coolDownCounter = coolDown;
-				SfxManager.Instance.PlayClip(fireClip, 0.2f);
+				SfxManager.Instance.PlayClip(fireClips[(int)PhaseManager.Instance.CurrentPhase]);
 			}
 			coolDownCounter -= Time.deltaTime;
 		}

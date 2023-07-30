@@ -219,7 +219,10 @@ MonoBehaviour:
   turret: {fileID: 6744683602712676027}
   muzzle: {fileID: 598913096197542543}
   coolDown: 0.1
-  fireClip: {fileID: 8300000, guid: 2b5107d0881e647469f074b2a9246909, type: 3}
+  fireClips:
+  - {fileID: 8300000, guid: 2b5107d0881e647469f074b2a9246909, type: 3}
+  - {fileID: 8300000, guid: 975a22d5389dfa84f8e79e51ca227129, type: 3}
+  - {fileID: 8300000, guid: 03cafd567c9ee694a9de48e4506df3ca, type: 3}
 --- !u!114 &95102964295039207
 MonoBehaviour:
   m_ObjectHideFlags: 0

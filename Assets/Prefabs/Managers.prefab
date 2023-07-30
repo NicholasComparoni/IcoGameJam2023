@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f7487f03484e08bca882b87137043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverClip: {fileID: 8300000, guid: 93d09bb8779737648941bd7b51dc5e57, type: 3}
+  victoryClip: {fileID: 8300000, guid: e64508e8e9e4c5f4a895705e8e7b7327, type: 3}
   speedMultiplier: 1
   levelState: 0
   enemiesKilled: 0

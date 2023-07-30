@@ -7,6 +7,8 @@ using UnityEngine;
 namespace ICO321 {
 	public class LevelManager : MonoBehaviour {
 		public static LevelManager Instance;
+		[SerializeField] private AudioClip gameOverClip;
+		[SerializeField] private AudioClip victoryClip;
 		private ScenesManager scenesManager;
 
 		public enum LevelState {
@@ -73,6 +75,7 @@ namespace ICO321 {
 		}
 
 		private IEnumerator GameOverSequence() {
+			SfxManager.Instance.PlayClip(gameOverClip);
 			ShowMessage("All your anus are belong to us", 4);
 			float timer = 0;
 			while (timer < 1) {
@@ -87,6 +90,7 @@ namespace ICO321 {
 		}
 
 		private IEnumerator VictorySequence() {
+			SfxManager.Instance.PlayClip(victoryClip);
 			ShowMessage("Space: The Anal Frontier", 4);
 			float timer = 0;
 			while (timer < 1) {
