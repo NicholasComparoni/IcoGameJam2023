@@ -43,8 +43,10 @@ namespace ICO321 {
 			float angleDeg = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0f, 0f, angleDeg);
 			transform.position += Direction * (speed * Time.deltaTime);
-			spriteRenderer.sprite = bulletSprites[currentSprite];
-			currentSprite = (currentSprite + 1) % bulletSprites.Length;
+			if (bulletSprites.Length > 0) {
+				spriteRenderer.sprite = bulletSprites[currentSprite];
+				currentSprite = (currentSprite + 1) % bulletSprites.Length;
+			}
 		}
 
 		private void OnTriggerEnter2D(Collider2D other) {
