@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnDistance: 0.8
-  cooldown: 1
+  cooldown: 2
   range: 15
   player: {fileID: 0}
   bullet: {fileID: 6614542702995730954, guid: e6138267a676d13468ce6829f57a4d7f, type: 3}
