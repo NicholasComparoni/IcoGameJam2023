@@ -26,7 +26,7 @@ public class EnemyDodgerAttack : MonoBehaviour {
 
     private void EnemyDodgerAttack_OnPlayerDeath()
     {
-        DestroyImmediate(this);
+        Destroy(this);
     }
 
     private void Update() {

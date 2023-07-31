@@ -28,7 +28,7 @@ namespace ICO321 {
 
         private void EnemySniperAttack_OnPlayerDeath()
         {
-			DestroyImmediate(this);
+			Destroy(this);
         }
 
         private void Update() {

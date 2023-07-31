@@ -36,7 +36,7 @@ namespace ICO321 {
 
         private void EnemyMeleeAttack_OnPlayerDeath()
         {
-            DestroyImmediate(this);
+            Destroy(this);
         }
 
         // Update is called once per frame
