@@ -13,11 +13,11 @@ namespace ICO321 {
 
 		public GameObject player;
 
+		bool alert;
 		private bool resting;
 
 		private float lastAttackTime;
 
-		private Vector3 offset;
 		private List<Vector3> waypoints;
 
 		private Rigidbody2D rb;
@@ -25,8 +25,8 @@ namespace ICO321 {
 		// Start is called before the first frame update
 		private void Start() {
 			player = GameObject.Find("Player");
+			alert = false;
 			resting = false;
-			offset = Vector3.zero;
 			lastAttackTime = Mathf.NegativeInfinity;
 			waypoints = new List<Vector3>();
 			rb = GetComponent<Rigidbody2D>();
@@ -46,8 +46,9 @@ namespace ICO321 {
 			{
 				waypoints.Clear();
 				waypoints.Add(player.transform.position - transform.parent.position);
+				alert = true;
 			}
-			else if (waypoints.Count > 0)
+			else if (alert && waypoints.Count > 0)
 			{
 				bool playerFoundEarly = false;
 				bool playerFoundLast = false;
@@ -85,7 +86,7 @@ namespace ICO321 {
 					waypoints.Add(newPoint2);
 				}
 			}
-			else
+			else if (alert)
 			{
 				waypoints.Add((Vector3)(hit.point + (hit.normal * GetComponent<CircleCollider2D>().radius)) - transform.parent.position);
 				waypoints.Add((Vector3)(hit.point) - transform.parent.position);
@@ -104,7 +105,7 @@ namespace ICO321 {
 				rb.drag = 0.0f;
                 rb.angularDrag = 0.0f;
             }
-			if (!resting) {
+			if (alert && !resting) {
 				Vector3 delenda = Vector3.zero;
 				foreach (Vector3 waypoint in waypoints)
                 {
