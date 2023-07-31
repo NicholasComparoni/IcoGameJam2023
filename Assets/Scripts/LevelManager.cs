@@ -66,6 +66,7 @@ namespace ICO321 {
 
 		private void Update() {
 			if (Input.GetButtonDown("Cancel")) {
+				Fade(false);
 				scenesManager.ReturnToMainMenu();
 			}
 		}
@@ -105,7 +106,7 @@ namespace ICO321 {
 			OnSpeedUpdated?.Invoke(0);
 			yield return new WaitForSeconds(2);
 			Fade(false);
-			scenesManager.ReturnToMainMenu();
+			scenesManager.ReloadLevel();
 		}
 
 		private IEnumerator VictorySequence() {

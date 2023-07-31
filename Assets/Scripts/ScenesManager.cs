@@ -17,6 +17,11 @@ namespace ICO321 {
 			StartCoroutine(LoadSceneAsync(nextLevel));
 		}
 
+		public void ReloadLevel() {
+			var currentSceneIndex = SceneManager.GetActiveScene().name;
+			LoadScene(currentSceneIndex);
+		}
+
 		public void LoadScene(string sceneToLoad) {
 			StartCoroutine(LoadSceneAsync(sceneToLoad));
 		}

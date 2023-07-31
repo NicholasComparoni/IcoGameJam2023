@@ -11,6 +11,7 @@ namespace ICO321 {
 		private AudioSource[] channels;
 		private int previousChannel = -1;
 		private int currentChannel = -1;
+		private AudioClip currentClipPlaying;
 
 		private void Awake() {
 			if (Instance != null) {
@@ -37,17 +38,19 @@ namespace ICO321 {
 		}
 
 		public void PlayTrack(int trackNumber) {
-			channels[currentChannel].clip = tracks[trackNumber % tracks.Length];
-			if (!channels[currentChannel].isPlaying) {
-				channels[currentChannel].Play();
+			if (tracks[trackNumber % tracks.Length] != currentClipPlaying) {
+				channels[currentChannel].clip = tracks[trackNumber % tracks.Length];
+				if (!channels[currentChannel].isPlaying) {
+					channels[currentChannel].Play();
+				}
+				currentClipPlaying = channels[currentChannel].clip;
+				channels[currentChannel].DOFade(1, 1);
+				if (previousChannel >= 0)
+					channels[previousChannel].DOFade(0, 1);
+
+				previousChannel = currentChannel;
+				currentChannel = (currentChannel + 1) % channelsNumber;
 			}
-
-			channels[currentChannel].DOFade(1, 1);
-			if (previousChannel >= 0)
-				channels[previousChannel].DOFade(0, 1);
-
-			previousChannel = currentChannel;
-			currentChannel = (currentChannel + 1) % channelsNumber;
 		}
 	}
 }

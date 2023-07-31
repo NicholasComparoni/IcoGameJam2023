@@ -13,6 +13,7 @@ namespace ICO321 {
 		private HorizontalScroller horizontalScroller;
 		public TilemapState tilemapState;
 		[SerializeField] private float timeToReachScreen;
+		[SerializeField] private CompositeCollider2D compositeCollider2D;
 		[Space] [Header("Stuff to activate")] [SerializeField]
 		private GameObject[] stuffToActivateOnEnterScreen;
 		private Collider2D col2D;
@@ -25,8 +26,10 @@ namespace ICO321 {
 			col2D = GetComponent<Collider2D>();
 
 			horizontalScroller = GetComponent<HorizontalScroller>();
-			for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
-				stuffToActivateOnEnterScreen[i].SetActive(false);
+			if (stuffToActivateOnEnterScreen != null && stuffToActivateOnEnterScreen.Length > 0) {
+				for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
+					stuffToActivateOnEnterScreen[i].SetActive(false);
+				}
 			}
 		}
 
@@ -52,6 +55,7 @@ namespace ICO321 {
 			bounds.extents += Vector3.forward * 10;
 			yield return null;
 			screenBounds = BoundariesManager.Instance.bounds;
+			compositeCollider2D.GenerateGeometry();
 			//Debug.Log($"{bounds} {screenBounds}");
 		}
 
@@ -62,6 +66,8 @@ namespace ICO321 {
 				case TilemapState.OutPreEnter:
 					if (bounds.Intersects(screenBounds)) {
 						tilemapState = TilemapState.InsideBounds;
+						// compositeCollider2D.generationType = CompositeCollider2D.GenerationType.Manual;
+						// compositeCollider2D.GenerateGeometry();
 						for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
 							stuffToActivateOnEnterScreen[i].SetActive(true);
 						}
