@@ -17,6 +17,7 @@ namespace ICO321 {
 		[Space] [SerializeField] private GameObject deadVfx;
 		private bool isDead;
 		private float graceTimer;
+		private bool godMode;
 		public event Action<int, int> OnHealthUpdated;
 		public event Action OnPlayerDeath;
 
@@ -31,11 +32,25 @@ namespace ICO321 {
 
 		private void Update() {
 			graceTimer -= Time.deltaTime;
+#if UNITY_EDITOR
+			if (Input.GetKeyDown(KeyCode.Space)) {
+				godMode = !godMode;
+				Debug.Log($"God Mode is {(godMode?"ON":"OFF")}");
+			}
+			if (godMode) {
+				graceTimer = graceTime;
+			}
+#endif
+		}
+
+		private void Heal() {
+			currentHealth++;
+			OnHealthUpdated?.Invoke(currentHealth, maxHealth);
 		}
 
 		public void Damage() {
 			if (!isDead) {
-				if (graceTimer < 0) {
+				if (graceTimer <= 0) {
 					currentHealth -= 1;
 					OnHealthUpdated?.Invoke(currentHealth, maxHealth);
 					graceTimer = graceTime;
@@ -54,6 +69,7 @@ namespace ICO321 {
 
 		public void Kill() {
 			currentHealth = 0;
+			graceTimer = 0;
 			Damage();
 		}
 
