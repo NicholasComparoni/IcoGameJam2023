@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 namespace ICO321 {
@@ -100,7 +101,9 @@ namespace ICO321 {
 
             if (resting && Time.time - lastAttackTime > cooldown) {
 				resting = false;
-			}
+				rb.drag = 0.0f;
+                rb.angularDrag = 0.0f;
+            }
 			if (!resting) {
 				Vector3 delenda = Vector3.zero;
 				foreach (Vector3 waypoint in waypoints)
@@ -126,6 +129,8 @@ namespace ICO321 {
 				resting = true;
 				lastAttackTime = Time.time;
 				rb.velocity = Vector2.zero;
+				rb.drag = 20.0f;
+				rb.angularDrag = 10.0f;
 			}
 		}
 	}
