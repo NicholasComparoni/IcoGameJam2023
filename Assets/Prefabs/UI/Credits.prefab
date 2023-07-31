@@ -66,8 +66,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nome \nnomeNome \nnome\nNome \nnome\nNome \nnomeNome \nnomeNome \nnome\nNome
-    \nnome\nNome \nnome"
+  m_text: '<b> by MadPigeonStudio</b>
+
+
+    <b>Programming</b>
+
+    Cianfanelli Andrea
+
+    Luca
+    Ballarati
+
+
+    <b>Design</b>
+
+    Belli Matteo
+
+    Nicholas Comparoni
+
+
+    <b>Art</b>
+
+    Gianvicenzo
+    Enrico
+
+    Tommaso Mechini
+
+
+    Assets Used
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0e2b82e5d37b3141966e04ce9a79960, type: 2}
   m_sharedMaterial: {fileID: 4514181387982588638, guid: d0e2b82e5d37b3141966e04ce9a79960, type: 2}
@@ -94,8 +121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 5.64
+  m_fontSizeBase: 5.64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
