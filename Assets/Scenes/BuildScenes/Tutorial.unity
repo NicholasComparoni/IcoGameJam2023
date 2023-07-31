@@ -7976,11 +7976,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.037214886
+      value: 0.22363204
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9262371
+      value: 0.5526478
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.9974555
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195367, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_Name
@@ -7995,6 +7999,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2242919162469526295, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
+      propertyPath: nextLevel
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 4938186051749428211, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
       propertyPath: m_Name
       value: Managers

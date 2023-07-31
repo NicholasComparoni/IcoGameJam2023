@@ -9,8 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/MainMenu.unity
     guid: ecd8cd32068261a498dcd092d72d53a8
   - enabled: 1
-    path: Assets/Scenes/Cinfa.unity
-    guid: e8214008adbb5ed4383190f9e14e48b6
+    path: Assets/Scenes/BuildScenes/Tutorial.unity
+    guid: 899f1eb063708734394c2e581b4831f0
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level1.unity
+    guid: 74f1680c5f455b24b90b32e5003a356d
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level2.unity
+    guid: 6e25223a9d42b6c48b38ed8478c7940e
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level3.unity
+    guid: eaf71669af228fb45bddc176c6525e6d
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level4.unity
+    guid: f4702abda4761b949a098d13818ac509
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/Level5.unity
+    guid: 30c7d83f4d1e2b04387acd7fe7f77887
   - enabled: 1
     path: Assets/Scenes/BuildScenes/Victory.unity
     guid: 1acd3af37957df44fb0b0cd554c8cb77

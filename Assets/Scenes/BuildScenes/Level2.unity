@@ -18533,6 +18533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2242919162469526295, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
+      propertyPath: nextLevel
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 4938186051749428211, guid: b58d50c98641b7a49b865cb3fbf5c19b, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -18608,7 +18612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6446208537032277336, guid: 53378821decc5424da2a6dfba49ebd19, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6446208537032277336, guid: 53378821decc5424da2a6dfba49ebd19, type: 3}
       propertyPath: m_AnchorMax.x
