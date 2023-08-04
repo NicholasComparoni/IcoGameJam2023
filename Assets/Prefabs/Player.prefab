@@ -14964,7 +14964,7 @@ MonoBehaviour:
   bullet: {fileID: 7168920256043626, guid: 4eab752415df3b1428c2c41a5a0e53d1, type: 3}
   turret: {fileID: 6744683602712676027}
   muzzle: {fileID: 598913096197542543}
-  coolDown: 0.3
+  coolDown: 0.1
   fireClips:
   - {fileID: 8300000, guid: 2b5107d0881e647469f074b2a9246909, type: 3}
   - {fileID: 8300000, guid: 975a22d5389dfa84f8e79e51ca227129, type: 3}

@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f7487f03484e08bca882b87137043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSettings: {fileID: 11400000, guid: d138918c3500dbe43a68199251d6af63, type: 2}
   startLevelMessage: READY
   gameOverMessage: GAME OVER!
   victoryMessage: LEVEL COMPLETE!

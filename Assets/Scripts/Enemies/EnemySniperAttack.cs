@@ -1,13 +1,12 @@
 using UnityEngine;
 
 namespace ICO321 {
-	public class EnemySniperAttack : MonoBehaviour {
+	public class EnemySniperAttack : EnemyAttack {
 		public float bulletSpawnDistance;
 		public float cooldown;
 		public float range;
 		public float speed;
 
-		public GameObject player;
 		public GameObject bullet;
 
 		private bool resting;
@@ -16,22 +15,13 @@ namespace ICO321 {
 		private Rigidbody2D rb;
 
 		private void Start() {
-			player = GameObject.Find("Player");
 			resting = false;
 			lastAttackTime = Mathf.NegativeInfinity;
 			toPlayer = (player.transform.position - transform.position);
 			rb = GetComponent<Rigidbody2D>();
+		}
 
-            player.GetComponent<PlayerHealth>().OnPlayerDeath += EnemySniperAttack_OnPlayerDeath;
-
-        }
-
-        private void EnemySniperAttack_OnPlayerDeath()
-        {
-			Destroy(this);
-        }
-
-        private void Update() {
+		private void Update() {
 			toPlayer = (player.transform.position - transform.position);
 
 			float angle = Vector3.SignedAngle(transform.up, toPlayer, Vector3.forward);
@@ -52,6 +42,7 @@ namespace ICO321 {
 				}
 			}
 		}
+
 		private void Shoot() {
 			var newBullet = PoolManager.Instance.GetItem(bullet.name).GetComponent<Bullet>();
 			Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
@@ -61,7 +52,7 @@ namespace ICO321 {
 			newBullet.Direction = dir.normalized;
 		}
 
-        private Vector3 LeadShot(Vector3 targetPosition, Vector3 targetVelocity, Vector3 startPosition, float projectileSpeed) {
+		private Vector3 LeadShot(Vector3 targetPosition, Vector3 targetVelocity, Vector3 startPosition, float projectileSpeed) {
 			float curDistance = (targetPosition - startPosition).magnitude;
 			float distanceCoefficient = (((targetPosition + (targetVelocity * curDistance / projectileSpeed))) - startPosition).magnitude / projectileSpeed;
 			return (((targetPosition + (targetVelocity * distanceCoefficient)) - startPosition));

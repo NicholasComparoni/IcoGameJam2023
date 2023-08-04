@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 
 namespace ICO321 {
 	public class LevelManager : MonoBehaviour {
+		[SerializeField] private LevelSettings levelSettings;
 		[SerializeField] private string startLevelMessage;
 		[SerializeField] private string gameOverMessage;
 		[SerializeField] private string victoryMessage;
@@ -33,6 +34,10 @@ namespace ICO321 {
 		public event Action<float> OnSpeedUpdated;
 		public event Action<string, float> ShowMessage;
 		public event Action<bool> Fade;
+
+		private void OnValidate() {
+			if (levelSettings != null) { }
+		}
 
 		private void Awake() {
 			if (Instance != null) {
@@ -61,7 +66,13 @@ namespace ICO321 {
 			}
 			Fade?.Invoke(true);
 			ShowMessage?.Invoke(startLevelMessage, 2);
-			MusicManager.Instance.PlayTrack(1);
+			if (levelSettings != null) {
+				MusicManager.Instance.PlayTrack(levelSettings.trackNumber);
+				var horizontalScrollers = FindObjectsOfType<HorizontalScroller>();
+				foreach (var hs in horizontalScrollers) {
+					hs.Setup(levelSettings);
+				}
+			}
 		}
 
 		private void Update() {

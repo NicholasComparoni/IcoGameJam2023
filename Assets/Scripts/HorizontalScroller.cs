@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ICO321 {
 	public class HorizontalScroller : MonoBehaviour {
@@ -13,6 +12,10 @@ namespace ICO321 {
 			}
 		}
 
+		public void Setup(LevelSettings levelSettings) {
+			speed = levelSettings.scrollingSpeed;
+		}
+
 		private void OnSpeedUpdated(float newSpeedMultiplier) {
 			speedMultiplier = newSpeedMultiplier;
 		}
@@ -20,6 +23,5 @@ namespace ICO321 {
 		private void Update() {
 			transform.Translate(Vector3.left * (speed * speedMultiplier * Time.deltaTime));
 		}
-
 	}
 }

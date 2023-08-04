@@ -10,7 +10,6 @@ namespace ICO321 {
 			OutOfBounds = 2
 		}
 
-		private HorizontalScroller horizontalScroller;
 		public TilemapState tilemapState;
 		[SerializeField] private float timeToReachScreen;
 		[SerializeField] private CompositeCollider2D compositeCollider2D;
@@ -18,20 +17,7 @@ namespace ICO321 {
 		private GameObject[] stuffToActivateOnEnterScreen;
 		private Collider2D col2D;
 		private Bounds bounds;
-		private Camera camera;
 		private Bounds screenBounds;
-
-		private void Awake() {
-			camera = Camera.main;
-			col2D = GetComponent<Collider2D>();
-
-			horizontalScroller = GetComponent<HorizontalScroller>();
-			if (stuffToActivateOnEnterScreen != null && stuffToActivateOnEnterScreen.Length > 0) {
-				for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
-					stuffToActivateOnEnterScreen[i].SetActive(false);
-				}
-			}
-		}
 
 		private void OnDrawGizmos() {
 			Gizmos.color = Color.magenta;
@@ -49,7 +35,18 @@ namespace ICO321 {
 			timeToReachScreen = Mathf.Abs(bounds.min.x - screenBounds.max.x) / GetComponent<HorizontalScroller>().speed;
 		}
 
+		private void Awake() {
+			col2D = GetComponent<Collider2D>();
+
+			
+		}
+
 		private IEnumerator Start() {
+			if (stuffToActivateOnEnterScreen != null && stuffToActivateOnEnterScreen.Length > 0) {
+				for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
+					stuffToActivateOnEnterScreen[i].SetActive(false);
+				}
+			}
 			yield return null;
 			bounds = col2D.bounds;
 			bounds.extents += Vector3.forward * 10;
