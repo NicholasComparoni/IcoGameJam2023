@@ -7,25 +7,25 @@ namespace ICO321 {
 		private EnemyHealth enemyHealth;
 		protected int playerLayer;
 
-		private void Awake() {
+		protected void Awake() {
 			playerLayer = LayerMask.NameToLayer("Player");
 			enemyHealth = GetComponent<EnemyHealth>();
 		}
 
-		private void OnDisable() {
+		protected  void OnDisable() {
 			player.OnPlayerDeath += OnPlayerDeath;
 		}
 
-		private void OnEnable() {
+		protected  void OnEnable() {
 			player = FindObjectOfType<PlayerHealth>();
 			player.OnPlayerDeath += OnPlayerDeath;
 		}
 
-		private void Start() {
+		protected  void Start() {
 			enemyHealth = GetComponent<EnemyHealth>();
 		}
 
-		private void OnPlayerDeath() {
+		protected  void OnPlayerDeath() {
 			enemyHealth.Kill();
 		}
 	}

@@ -2,12 +2,14 @@ using UnityEngine;
 
 namespace ICO321 {
 	public class EnemySniperAttack : EnemyAttack {
-		public float bulletSpawnDistance;
-		public float cooldown;
-		public float range;
-		public float speed;
+		[SerializeField] public float bulletSpawnDistance;
+		[SerializeField] public float cooldown;
+		[SerializeField] public float range;
 
-		public GameObject bullet;
+		[SerializeField] public float speed;
+		[SerializeField] private float turningSpeed;
+
+		[SerializeField] public GameObject bullet;
 
 		private bool resting;
 		private float lastAttackTime;

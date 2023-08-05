@@ -129,11 +129,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945995091954283343}
+  - component: {fileID: 8378226385418481887}
   - component: {fileID: 5487085034635926059}
   - component: {fileID: 8613226913220880409}
-  - component: {fileID: 4128475813636563008}
   - component: {fileID: 1949207531140077327}
-  - component: {fileID: 8378226385418481887}
+  - component: {fileID: 4128475813636563008}
   m_Layer: 9
   m_Name: EnemyDodger
   m_TagString: Untagged
@@ -157,6 +157,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8378226385418481887
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386908912876857290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.36
 --- !u!50 &5487085034635926059
 Rigidbody2D:
   serializedVersion: 4
@@ -190,23 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24335837b88a47e448adef011297ea12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   enemyPhase: 1
   deathVfx: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
+  hitClip: {fileID: 8300000, guid: 2ccc339a142d1624c83b77828b3be7ad, type: 3}
   deathClip: {fileID: 8300000, guid: ee9975109e3fe944a914b960f7ddbea1, type: 3}
---- !u!114 &4128475813636563008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5386908912876857290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0051b517bad06da4b93c2c83ab4dd810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementWidth: 4
-  timeOffset: 0.5
 --- !u!114 &1949207531140077327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,19 +227,17 @@ MonoBehaviour:
   cooldown: 2
   range: 15
   bullet: {fileID: 6614542702995730954, guid: e6138267a676d13468ce6829f57a4d7f, type: 3}
---- !u!58 &8378226385418481887
-CircleCollider2D:
+--- !u!114 &4128475813636563008
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386908912876857290}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.36
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0051b517bad06da4b93c2c83ab4dd810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementWidth: 4
+  timeOffset: 0.5

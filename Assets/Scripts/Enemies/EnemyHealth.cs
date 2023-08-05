@@ -4,9 +4,11 @@ using UnityEngine.Serialization;
 
 namespace ICO321 {
 	public class EnemyHealth : MonoBehaviour {
+		[SerializeField] private float health = 1;
 		[FormerlySerializedAs("phase")] public TypesUtility.Phase enemyPhase;
 		public event Action OnDeath;
 		public GameObject deathVfx;
+		[SerializeField] private AudioClip hitClip;
 		[SerializeField] private AudioClip deathClip;
 		private bool isDead;
 
@@ -16,7 +18,13 @@ namespace ICO321 {
 
 		public void Damage(TypesUtility.Phase bulletPhase) {
 			if (bulletPhase == enemyPhase) {
-				Die();
+				health--;
+				if (health <= 0) {
+					Die();
+				}
+				else {
+					SfxManager.Instance.PlayClip(hitClip, 0.3f);
+				}
 			}
 		}
 
