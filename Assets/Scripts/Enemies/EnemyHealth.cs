@@ -10,6 +10,7 @@ namespace ICO321 {
 		[SerializeField] private EnemySatelliteManager enemySatelliteManager;
 		[SerializeField] private TypesUtility.Phase enemyPhase;
 		public event Action OnDeath;
+		public event Action OnHit;
 		public GameObject deathVfx;
 
 		[SerializeField] private AudioClip hitClip;
@@ -27,7 +28,14 @@ namespace ICO321 {
 		}
 
 		private void OnDestroy() {
-			Die();
+			if (deactivateOnDeath) {
+				
+				gameObject.SetActive(false);
+			}
+			else {
+				Destroy(gameObject);
+			}
+			OnDeath?.Invoke();
 		}
 
 		public void Kill() {
@@ -46,6 +54,7 @@ namespace ICO321 {
 				}
 			}
 			else {
+				OnHit?.Invoke();
 				//colpito da un bullet di colore diverso!
 				if (canHaveSatellites) {
 					enemySatelliteManager.AddSatellite(bulletPhase);

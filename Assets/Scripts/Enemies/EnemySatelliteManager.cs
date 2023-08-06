@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ICO321 {
@@ -22,6 +23,12 @@ namespace ICO321 {
 
 		private void OnDisable() {
 			enemyHealth.OnDeath -= OnDeath;
+		}
+
+		private void OnDestroy() {
+			foreach (var satellite in satellites) {
+				satellite.Destroyed -= OnSatelliteDestroyed;
+			}
 		}
 
 		private void Start() {
@@ -56,18 +63,21 @@ namespace ICO321 {
 
 		private void OnDeath() {
 			for (int i = satellites.Count - 1; i >= 0; i--) {
-				satellites[i].GetComponent<EnemyHealth>().Kill();
+				if (satellites[i] != null)
+					satellites[i].GetComponent<EnemyHealth>().Kill();
 			}
 
 			Destroy(gameObject);
 		}
 
 		private void OnSatelliteDestroyed(EnemySatellite whichSatellite) {
-			//Debug.Log($"Satellite destroyed");
-			whichSatellite.Destroyed -= OnSatelliteDestroyed;
+			Debug.Log($"Satellite destroyed");
+			Debug.Log($"before remove {satelliteTargetPositions.Count} {satellites.Count}");
 			satelliteTargetPositions.Remove(whichSatellite.followTarget.gameObject);
 			satellites.Remove(whichSatellite);
+			Debug.Log($"after remove {satelliteTargetPositions.Count} {satellites.Count}");
 			RearrangeTargets();
+			whichSatellite.Destroyed -= OnSatelliteDestroyed;
 		}
 
 		private void RearrangeTargets() {
@@ -78,7 +88,7 @@ namespace ICO321 {
 					satelliteTargetPositions[i].transform.localPosition = new Vector3(Mathf.Cos(a), Mathf.Sin(a));
 					a += angle;
 				}
-				//Debug.Log($"rearranging to {satelliteTargetPositions.Count}");
+				Debug.Log($"rearranging to {satelliteTargetPositions.Count}");
 			}
 			else {
 				angle = 360;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7738041891792133285}
   - component: {fileID: 4352901034503465564}
   - component: {fileID: 5716910436151948183}
+  - component: {fileID: 3517573509385389721}
   m_Layer: 9
   m_Name: EnemySniper
   m_TagString: Untagged
@@ -112,6 +113,22 @@ MonoBehaviour:
   speed: 3
   turningSpeed: 2
   bullet: {fileID: 65677213018623296, guid: 1968cc9fa6c166f4db61fb38862b3068, type: 3}
+--- !u!114 &3517573509385389721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773451041867965071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc9d02416f349caac709a949393f9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 0}
+  spriteRenderer: {fileID: 5032236286657010905}
+  maxFlash: 1
+  flashDuration: 0.5
 --- !u!1 &8837727659610975856
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +182,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1663e42c8e02ee247a56590466b840ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

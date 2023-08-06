@@ -8,19 +8,12 @@ namespace ICO321 {
 		public Transform followTarget;
 		[SerializeField] private SpriteRenderer spriteRenderer;
 		[SerializeField] private Transform facingTarget;
+		private EnemyHealth enemyHealth;
 		public event Action<EnemySatellite> Destroyed;
 
-		private void Awake() {
-			satelliteHealth.OnDeath += OnSatelliteDeath;
-		}
-
-		private void OnEnable() {
-			satelliteHealth.Reset();
-		}
-
-		private void OnSatelliteDeath() {
-			Destroyed?.Invoke(this);
-		}
+		// private void OnEnable() {
+		// 	satelliteHealth.Reset();
+		// }
 
 		private void Update() {
 			transform.position = Vector3.Lerp(transform.position, followTarget.position, stiffness * Time.deltaTime);
@@ -33,8 +26,12 @@ namespace ICO321 {
 		}
 
 		private void OnDestroy() {
-			//Debug.LogWarning($"Should not destroy this [{name}]");
 			satelliteHealth.OnDeath -= OnDeath;
+			Destroyed?.Invoke(this);
+		}
+
+		private void OnDisable() {
+			Destroyed?.Invoke(this);
 		}
 
 		public void Setup(TypesUtility.Phase phase, EnemyHealth enemyHealth) {
@@ -42,13 +39,15 @@ namespace ICO321 {
 			spriteRenderer.color = PhaseManager.Instance.GetPhaseColor(phase);
 			satelliteHealth.EnemyPhase = phase;
 			facingTarget = enemyHealth.transform;
-			enemyHealth.OnDeath += OnDeath;
+			this.enemyHealth = enemyHealth;
+			this.enemyHealth.OnDeath += OnDeath;
 		}
 
 		private void OnDeath() {
-			satelliteHealth.OnDeath -= OnDeath;
-			facingTarget = null;
 			Destroyed?.Invoke(this);
+			facingTarget = null;
+			this.enemyHealth.OnDeath -= OnDeath;
+			enemyHealth = null;
 			gameObject.SetActive(false);
 		}
 	}
