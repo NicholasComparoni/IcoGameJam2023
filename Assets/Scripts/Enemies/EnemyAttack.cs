@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ICO321 {
@@ -13,7 +12,7 @@ namespace ICO321 {
 		}
 
 		protected  void OnDisable() {
-			player.OnPlayerDeath += OnPlayerDeath;
+			player.OnPlayerDeath -= OnPlayerDeath;
 		}
 
 		protected  void OnEnable() {

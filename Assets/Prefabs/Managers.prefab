@@ -274,6 +274,9 @@ MonoBehaviour:
   - id: 
     prefab: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
     amount: 20
+  - id: 
+    prefab: {fileID: 2815288675570082675, guid: 6202154a5c773024e9afbcc3db0db3b0, type: 3}
+    amount: 40
 --- !u!114 &4938186051749428215
 MonoBehaviour:
   m_ObjectHideFlags: 0

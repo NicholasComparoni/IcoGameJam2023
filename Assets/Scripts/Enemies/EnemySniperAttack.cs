@@ -16,7 +16,7 @@ namespace ICO321 {
 		private Vector3 toPlayer;
 		private Rigidbody2D rb;
 
-		private void Start() {
+		private new void Start() {
 			resting = false;
 			lastAttackTime = Mathf.NegativeInfinity;
 			toPlayer = (player.transform.position - transform.position);

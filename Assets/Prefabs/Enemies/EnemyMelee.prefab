@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1554863842293639006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7689649707502017757}
+  - component: {fileID: 6062658734650279474}
+  - component: {fileID: 2533219747118908349}
+  m_Layer: 9
+  m_Name: SatelliteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7689649707502017757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554863842293639006}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9127329628235298510}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6062658734650279474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554863842293639006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b22f8369c5a4635a6682590c8af94be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 2264453653994936895}
+  satellitePrefab: {fileID: 1212572094948199996, guid: 6202154a5c773024e9afbcc3db0db3b0, type: 3}
+  satellites: []
+  rotationSpeed: 5
+  enemyCollider: {fileID: 3428862303281316887}
+--- !u!114 &2533219747118908349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554863842293639006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40051480da4042b995d51ef24f6e6de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 9127329628235298510}
 --- !u!1 &4370502495650039937
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 928184309691053280}
+  - {fileID: 7689649707502017757}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -170,6 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  canHaveSatellites: 1
+  enemySatelliteManager: {fileID: 6062658734650279474}
   enemyPhase: 2
   deathVfx: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
   hitClip: {fileID: 8300000, guid: 2ccc339a142d1624c83b77828b3be7ad, type: 3}
@@ -189,6 +255,7 @@ MonoBehaviour:
   cooldown: 3
   speed: 4
   turningSpeed: 2
+  viewDistance: 10
   detectableLayers:
     serializedVersion: 2
     m_Bits: 1281

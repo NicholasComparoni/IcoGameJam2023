@@ -12,7 +12,7 @@ namespace ICO321 {
 		private float lastAttackTime;
 		private Vector3 toPlayer;
 
-		private void Start() {
+		private new void Start() {
 			resting = false;
 			lastAttackTime = Mathf.NegativeInfinity;
 		}

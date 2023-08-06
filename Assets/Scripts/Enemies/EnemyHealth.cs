@@ -5,25 +5,45 @@ using UnityEngine.Serialization;
 namespace ICO321 {
 	public class EnemyHealth : MonoBehaviour {
 		[SerializeField] private float health = 1;
-		[FormerlySerializedAs("phase")] public TypesUtility.Phase enemyPhase;
+		[SerializeField] private bool canHaveSatellites;
+		[SerializeField] private bool deactivateOnDeath;
+		[SerializeField] private EnemySatelliteManager enemySatelliteManager;
+		[SerializeField] private TypesUtility.Phase enemyPhase;
 		public event Action OnDeath;
 		public GameObject deathVfx;
+
 		[SerializeField] private AudioClip hitClip;
 		[SerializeField] private AudioClip deathClip;
 		private bool isDead;
+
+		public TypesUtility.Phase EnemyPhase {
+			get => enemyPhase;
+			set => enemyPhase = value;
+		}
+
+		private void Awake() {
+			if (enemySatelliteManager == null) enemySatelliteManager = GetComponent<EnemySatelliteManager>();
+		}
 
 		public void Kill() {
 			Die();
 		}
 
 		public void Damage(TypesUtility.Phase bulletPhase) {
-			if (bulletPhase == enemyPhase) {
+			//Debug.Log($"{bulletPhase} , {EnemyPhase}");
+			if (bulletPhase == EnemyPhase) {
 				health--;
 				if (health <= 0) {
 					Die();
 				}
 				else {
 					SfxManager.Instance.PlayClip(hitClip, 0.3f);
+				}
+			}
+			else {
+				//colpito da un bullet di colore diverso!
+				if (canHaveSatellites) {
+					enemySatelliteManager.AddSatellite(bulletPhase);
 				}
 			}
 		}
@@ -33,11 +53,16 @@ namespace ICO321 {
 				isDead = true;
 				var vfx = PoolManager.Instance.GetItem(deathVfx.name);
 				vfx.transform.position = transform.position;
-				vfx.GetComponent<ParticleVfx>().Color = PhaseManager.Instance.GetPhaseColor(enemyPhase);
+				vfx.GetComponent<ParticleVfx>().Color = PhaseManager.Instance.GetPhaseColor(EnemyPhase);
 				vfx.GetComponent<ParticleVfx>().Play();
 				SfxManager.Instance.PlayClip(deathClip, 0.3f);
 				OnDeath?.Invoke();
-				Destroy(gameObject);
+				if (deactivateOnDeath) {
+					gameObject.SetActive(false);
+				}
+				else {
+					Destroy(gameObject);
+				}
 			}
 		}
 	}

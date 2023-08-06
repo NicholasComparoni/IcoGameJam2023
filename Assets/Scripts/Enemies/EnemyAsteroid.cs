@@ -18,8 +18,8 @@ namespace ICO321 {
 		private void OnCollisionEnter2D(Collision2D other) {
 			var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
 			if (enemyHealth != null) {
-				if (enemyHealth.enemyPhase == health.enemyPhase) {
-					enemyHealth.Damage(health.enemyPhase);
+				if (enemyHealth.EnemyPhase == health.EnemyPhase) {
+					enemyHealth.Damage(health.EnemyPhase);
 					health.Kill();
 				}
 			}
