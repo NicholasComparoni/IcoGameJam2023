@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace ICO321 {
@@ -17,19 +16,22 @@ namespace ICO321 {
 			angle = 360;
 		}
 
+		private void OnEnable() {
+			enemyHealth.OnDeath += OnDeath;
+		}
+
+		private void OnDisable() {
+			enemyHealth.OnDeath -= OnDeath;
+		}
+
 		private void Start() {
 			radius = enemyCollider.bounds.size.magnitude;
 			transform.localRotation = Quaternion.identity;
-			enemyHealth.OnDeath += OnDeath;
 			gameObject.name = $"{enemyHealth.gameObject.name} Satellite Manager {radius}";
 		}
 
-		private void OnDeath() {
-			Destroy(gameObject);
-		}
-
 		private void Update() {
-			transform.RotateAround(Vector3.forward, rotationSpeed * Time.deltaTime);
+			transform.Rotate(Vector3.forward, rotationSpeed * (satelliteTargetPositions.Count) * Time.deltaTime);
 		}
 
 		public void AddSatellite(TypesUtility.Phase phase) {
@@ -52,7 +54,16 @@ namespace ICO321 {
 			RearrangeTargets();
 		}
 
+		private void OnDeath() {
+			for (int i = satellites.Count - 1; i >= 0; i--) {
+				satellites[i].GetComponent<EnemyHealth>().Kill();
+			}
+
+			Destroy(gameObject);
+		}
+
 		private void OnSatelliteDestroyed(EnemySatellite whichSatellite) {
+			//Debug.Log($"Satellite destroyed");
 			whichSatellite.Destroyed -= OnSatelliteDestroyed;
 			satelliteTargetPositions.Remove(whichSatellite.followTarget.gameObject);
 			satellites.Remove(whichSatellite);
@@ -61,12 +72,24 @@ namespace ICO321 {
 
 		private void RearrangeTargets() {
 			if (satelliteTargetPositions.Count > 0) {
-				angle = 360f / satelliteTargetPositions.Count;
+				angle = (360f / satelliteTargetPositions.Count) * Mathf.Deg2Rad;
 				float a = 0;
 				for (int i = 0; i < satelliteTargetPositions.Count; i++) {
 					satelliteTargetPositions[i].transform.localPosition = new Vector3(Mathf.Cos(a), Mathf.Sin(a));
 					a += angle;
 				}
+				//Debug.Log($"rearranging to {satelliteTargetPositions.Count}");
+			}
+			else {
+				angle = 360;
+				for (int i = satelliteTargetPositions.Count - 1; i >= 0; i--) {
+					satelliteTargetPositions.RemoveAt(i);
+				}
+				satelliteTargetPositions.Clear();
+				for (int i = satellites.Count - 1; i >= 0; i--) {
+					satellites.RemoveAt(i);
+				}
+				satellites.Clear();
 			}
 		}
 	}

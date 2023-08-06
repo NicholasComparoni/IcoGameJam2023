@@ -1,16 +1,27 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ICO321 {
 	public class EnemySatellite : MonoBehaviour {
-		[FormerlySerializedAs("enemyHealth")] [SerializeField]
-		private EnemyHealth satelliteHealth;
+		[SerializeField] private EnemyHealth satelliteHealth;
 		[SerializeField] private float stiffness = 10;
 		public Transform followTarget;
 		[SerializeField] private SpriteRenderer spriteRenderer;
 		[SerializeField] private Transform facingTarget;
 		public event Action<EnemySatellite> Destroyed;
+
+		private void Awake() {
+			satelliteHealth.OnDeath += OnSatelliteDeath;
+		}
+
+		private void OnEnable() {
+			satelliteHealth.Reset();
+		}
+
+		private void OnSatelliteDeath() {
+			Destroyed?.Invoke(this);
+		}
+
 		private void Update() {
 			transform.position = Vector3.Lerp(transform.position, followTarget.position, stiffness * Time.deltaTime);
 
@@ -27,6 +38,7 @@ namespace ICO321 {
 		}
 
 		public void Setup(TypesUtility.Phase phase, EnemyHealth enemyHealth) {
+			satelliteHealth.Reset();
 			spriteRenderer.color = PhaseManager.Instance.GetPhaseColor(phase);
 			satelliteHealth.EnemyPhase = phase;
 			facingTarget = enemyHealth.transform;

@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace ICO321 {
 	public class UIMenuManager : MonoBehaviour {
 		private ScenesManager scenesManager;
 		[SerializeField] private UIFade uiFade;
+		[SerializeField] private TMP_Text versionText;
 		private bool allowInput = true;
 
 		private void Awake() {

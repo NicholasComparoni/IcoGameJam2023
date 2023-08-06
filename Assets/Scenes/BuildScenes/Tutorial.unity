@@ -244,10 +244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6649607998881794472, guid: 7a0b0fb3ba550664e97aa5c5dca6405f, type: 3}
-      propertyPath: coolDown
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 7517428944882849195, guid: 7a0b0fb3ba550664e97aa5c5dca6405f, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5716,15 +5712,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.03368421
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99951196
+      value: 0.93192977
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195365, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 1914825291838195367, guid: 8cb2a2e751f028d448eca1e195af361a, type: 3}
       propertyPath: m_Name

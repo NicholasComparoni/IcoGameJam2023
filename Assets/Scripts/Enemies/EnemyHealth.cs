@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ICO321 {
 	public class EnemyHealth : MonoBehaviour {
 		[SerializeField] private float health = 1;
+		private float defaultHealth;
 		[SerializeField] private bool canHaveSatellites;
 		[SerializeField] private bool deactivateOnDeath;
 		[SerializeField] private EnemySatelliteManager enemySatelliteManager;
@@ -23,6 +23,11 @@ namespace ICO321 {
 
 		private void Awake() {
 			if (enemySatelliteManager == null) enemySatelliteManager = GetComponent<EnemySatelliteManager>();
+			defaultHealth = health;
+		}
+
+		private void OnDestroy() {
+			Die();
 		}
 
 		public void Kill() {
@@ -64,6 +69,11 @@ namespace ICO321 {
 					Destroy(gameObject);
 				}
 			}
+		}
+
+		public void Reset() {
+			health = defaultHealth;
+			isDead = false;
 		}
 	}
 }

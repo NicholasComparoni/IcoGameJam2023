@@ -37,8 +37,6 @@ namespace ICO321 {
 
 		private void Awake() {
 			col2D = GetComponent<Collider2D>();
-
-			
 		}
 
 		private IEnumerator Start() {
@@ -63,8 +61,6 @@ namespace ICO321 {
 				case TilemapState.OutPreEnter:
 					if (bounds.Intersects(screenBounds)) {
 						tilemapState = TilemapState.InsideBounds;
-						// compositeCollider2D.generationType = CompositeCollider2D.GenerationType.Manual;
-						// compositeCollider2D.GenerateGeometry();
 						for (int i = 0; i < stuffToActivateOnEnterScreen.Length; i++) {
 							stuffToActivateOnEnterScreen[i].SetActive(true);
 						}
