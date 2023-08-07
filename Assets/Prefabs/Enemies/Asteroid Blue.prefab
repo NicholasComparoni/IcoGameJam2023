@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4172081556605491629}
   - component: {fileID: 4172081556605491603}
   - component: {fileID: 4172081556605491602}
+  - component: {fileID: 3225985728043521861}
   m_Layer: 0
   m_Name: Asteroid Blue
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1663e42c8e02ee247a56590466b840ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,8 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24335837b88a47e448adef011297ea12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
+  canHaveSatellites: 0
+  deactivateOnDeath: 0
+  enemySatelliteManager: {fileID: 0}
   enemyPhase: 0
   deathVfx: {fileID: 4476459128443434889, guid: 70dce5a1421e34747aef7f48b86c209d, type: 3}
+  hitClip: {fileID: 0}
   deathClip: {fileID: 8300000, guid: c5f722bd3da501044b87716e4b5a00fa, type: 3}
 --- !u!58 &4172081556605491603
 CircleCollider2D:
@@ -153,3 +159,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &3225985728043521861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172081556605491624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc9d02416f349caac709a949393f9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 4172081556605491629}
+  spriteRenderer: {fileID: 4172081556605491631}
+  maxFlash: 0.75
+  flashDuration: 1
