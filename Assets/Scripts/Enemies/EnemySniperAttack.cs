@@ -24,6 +24,7 @@ namespace ICO321 {
 		}
 
 		private void Update() {
+			if (!isPlayerAlive) return;
 			toPlayer = (player.transform.position - transform.position);
 
 			float angle = Vector3.SignedAngle(transform.up, toPlayer, Vector3.forward);

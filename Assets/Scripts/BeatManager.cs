@@ -81,7 +81,7 @@ namespace ICO321 {
 		private void CreateAudioBands() {
 			for (int i = 0; i < 8; i++) {
 				if (frequencyBand[i] > frequencyBandHighest[i]) {
-					frequencyBandHighest[i] = frequencyBand[i];
+					frequencyBandHighest[i] = Mathf.Lerp(frequencyBandHighest[i], frequencyBand[i], 0.5f);
 				}
 				audioBand[i] = frequencyBand[i] / frequencyBandHighest[i];
 				audioBandBuffer[i] = bandBuffer[i] / frequencyBandHighest[i];
@@ -96,7 +96,7 @@ namespace ICO321 {
 				currentAmplitudeBuffer += audioBandBuffer[i];
 			}
 			if (currentAmplitude > amplitudeHighest) {
-				amplitudeHighest = currentAmplitude;
+				amplitudeHighest = Mathf.Lerp(amplitudeHighest, currentAmplitude, 0.5f);
 			}
 			amplitude = currentAmplitude / amplitudeHighest;
 			amplitudeBuffer = currentAmplitudeBuffer / amplitudeHighest;

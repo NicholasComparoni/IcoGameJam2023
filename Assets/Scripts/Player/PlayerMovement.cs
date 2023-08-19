@@ -64,8 +64,8 @@ namespace ICO321 {
 			topThrusters[1].Stop();
 			bottomThrusters[0].Stop();
 			bottomThrusters[1].Stop();
-			
 		}
+
 		private void DoVerticalThrusters() {
 			if (direction.y > 0) {
 				bottomThrusters[0].Play();

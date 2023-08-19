@@ -50,11 +50,13 @@ namespace ICO321 {
 		}
 
 		private void Update() {
-			bool isplayer;
+			if (!isPlayerAlive) return;
+			
+			bool actualPlayer;
 			switch (status) {
 				case MeleeStatus.Idle:
-					var canSeePlayer = SeekPlayer(out isplayer);
-					if (isplayer) status = MeleeStatus.Alert;
+					var canSeePlayer = SeekPlayer(out actualPlayer);
+					if (actualPlayer) status = MeleeStatus.Alert;
 					break;
 				case MeleeStatus.Alert:
 					if (waypoints.Count > 0) {

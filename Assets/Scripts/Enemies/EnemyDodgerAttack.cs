@@ -18,8 +18,8 @@ namespace ICO321 {
 		}
 
 		private void Update() {
+			if (!isPlayerAlive) return;
 			toPlayer = (player.transform.position - transform.position);
-
 			if (resting && Time.time - lastAttackTime > cooldown) {
 				resting = false;
 			}

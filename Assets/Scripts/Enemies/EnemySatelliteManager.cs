@@ -71,11 +71,11 @@ namespace ICO321 {
 		}
 
 		private void OnSatelliteDestroyed(EnemySatellite whichSatellite) {
-			Debug.Log($"Satellite destroyed");
-			Debug.Log($"before remove {satelliteTargetPositions.Count} {satellites.Count}");
+			//Debug.Log($"Satellite destroyed");
+			//Debug.Log($"before remove {satelliteTargetPositions.Count} {satellites.Count}");
 			satelliteTargetPositions.Remove(whichSatellite.followTarget.gameObject);
 			satellites.Remove(whichSatellite);
-			Debug.Log($"after remove {satelliteTargetPositions.Count} {satellites.Count}");
+			//Debug.Log($"after remove {satelliteTargetPositions.Count} {satellites.Count}");
 			RearrangeTargets();
 			whichSatellite.Destroyed -= OnSatelliteDestroyed;
 		}
@@ -88,7 +88,7 @@ namespace ICO321 {
 					satelliteTargetPositions[i].transform.localPosition = new Vector3(Mathf.Cos(a), Mathf.Sin(a));
 					a += angle;
 				}
-				Debug.Log($"rearranging to {satelliteTargetPositions.Count}");
+				//Debug.Log($"rearranging to {satelliteTargetPositions.Count}");
 			}
 			else {
 				angle = 360;
