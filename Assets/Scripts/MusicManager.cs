@@ -12,15 +12,17 @@ namespace ICO321 {
 		private int previousChannel = -1;
 		private int currentChannel = -1;
 		private AudioClip currentClipPlaying;
+		private BeatManager beatManager;
 
 		private void Awake() {
 			if (Instance != null) {
-				Destroy(this);
+				Destroy(gameObject);
 			}
 			else {
 				Instance = this;
 			}
 			DontDestroyOnLoad(gameObject);
+			beatManager = GetComponent<BeatManager>();
 			if (channelsNumber > 0) {
 				channels = new AudioSource[channelsNumber];
 				GameObject musicChannels = new GameObject("Music Channels");
@@ -47,10 +49,15 @@ namespace ICO321 {
 				channels[currentChannel].DOFade(1, 1);
 				if (previousChannel >= 0)
 					channels[previousChannel].DOFade(0, 1);
-
+				beatManager.SetAudioSource(channels[currentChannel]);
 				previousChannel = currentChannel;
 				currentChannel = (currentChannel + 1) % channelsNumber;
 			}
+		}
+
+		[ContextMenu("Next Track")]
+		public void PlayNextTrack() {
+			PlayTrack(1);
 		}
 	}
 }

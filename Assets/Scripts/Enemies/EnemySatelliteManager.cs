@@ -83,7 +83,7 @@ namespace ICO321 {
 		private void RearrangeTargets() {
 			if (satelliteTargetPositions.Count > 0) {
 				angle = (360f / satelliteTargetPositions.Count) * Mathf.Deg2Rad;
-				float a = 0;
+				float a = Mathf.PI;
 				for (int i = 0; i < satelliteTargetPositions.Count; i++) {
 					satelliteTargetPositions[i].transform.localPosition = new Vector3(Mathf.Cos(a), Mathf.Sin(a));
 					a += angle;
