@@ -53,7 +53,7 @@ namespace ICO321 {
 			newSatellite.transform.SetParent(null);
 			newSatellite.transform.position = transform.position;
 			var enemySatellite = newSatellite.GetComponent<EnemySatellite>();
-			enemySatellite.Setup(phase, enemyHealth);
+			enemySatellite.Setup(enemyHealth.EnemyPhase, enemyHealth);
 			enemySatellite.followTarget = newTarget.transform;
 			enemySatellite.Destroyed += OnSatelliteDestroyed;
 			satellites.Add(enemySatellite);

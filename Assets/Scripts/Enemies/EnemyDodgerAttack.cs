@@ -32,10 +32,11 @@ namespace ICO321 {
 
 		private void Shoot() {
 			var newBullet = PoolManager.Instance.GetItem(bullet.name).GetComponent<Bullet>();
-			Vector3 spawnPos = transform.position + toPlayer.normalized * bulletSpawnDistance;
-			newBullet.transform.position = spawnPos;
-			newBullet.transform.rotation = transform.rotation;
-			newBullet.Direction = toPlayer.normalized;
+			//Vector3 spawnPos = transform.position; // + toPlayer.normalized * bulletSpawnDistance;
+			newBullet.transform.position = transform.position;
+			//newBullet.transform.rotation = transform.rotation;
+			//newBullet.Direction = toPlayer.normalized;
+			newBullet.Direction = transform.up;
 		}
 	}
 }
