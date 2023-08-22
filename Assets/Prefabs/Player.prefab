@@ -5016,7 +5016,7 @@ MonoBehaviour:
   - channel: 5
     sprites:
     - {fileID: 5233549398874524124}
-  emissive: 4
+  emissive: 0.5
 --- !u!1 &460403838313167539
 GameObject:
   m_ObjectHideFlags: 0
